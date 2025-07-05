@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Elements -->
+  <circle cx="400" cy="300" r="250" fill="url(#gradient1)" opacity="0.1"/>
+  <circle cx="400" cy="300" r="200" fill="url(#gradient2)" opacity="0.1"/>
+  
+  <!-- Main Illustration -->
+  <g transform="translate(200, 150)">
+    <!-- Computer Screen -->
+    <rect x="100" y="50" width="300" height="200" rx="10" fill="#2D3748"/>
+    <rect x="110" y="60" width="280" height="180" rx="5" fill="#4A5568"/>
+    
+    <!-- Code Elements -->
+    <rect x="130" y="80" width="100" height="10" rx="2" fill="#63B3ED"/>
+    <rect x="130" y="100" width="80" height="10" rx="2" fill="#63B3ED"/>
+    <rect x="130" y="120" width="120" height="10" rx="2" fill="#63B3ED"/>
+    <rect x="130" y="140" width="90" height="10" rx="2" fill="#63B3ED"/>
+    <rect x="130" y="160" width="110" height="10" rx="2" fill="#63B3ED"/>
+    
+    <!-- Computer Base -->
+    <rect x="150" y="250" width="200" height="20" rx="5" fill="#2D3748"/>
+    <rect x="200" y="270" width="100" height="10" rx="2" fill="#2D3748"/>
+    
+    <!-- Decorative Elements -->
+    <circle cx="400" cy="100" r="30" fill="#4299E1" opacity="0.5"/>
+    <circle cx="100" cy="200" r="20" fill="#4299E1" opacity="0.5"/>
+    <circle cx="500" cy="250" r="25" fill="#4299E1" opacity="0.5"/>
+  </g>
+  
+  <!-- Gradients -->
+  <defs>
+    <radialGradient id="gradient1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 300) rotate(90) scale(250)">
+      <stop offset="0%" stop-color="#4299E1"/>
+      <stop offset="100%" stop-color="#2B6CB0"/>
+    </radialGradient>
+    <radialGradient id="gradient2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 300) rotate(90) scale(200)">
+      <stop offset="0%" stop-color="#63B3ED"/>
+      <stop offset="100%" stop-color="#4299E1"/>
+    </radialGradient>
+  </defs>
+</svg> 

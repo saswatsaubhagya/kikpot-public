@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F7FAFC"/>
+  
+  <!-- Shield -->
+  <path d="M200 50L300 100V150C300 200 250 250 200 270C150 250 100 200 100 150V100L200 50Z" fill="#4299E1"/>
+  <path d="M200 70L280 110V150C280 190 240 230 200 250C160 230 120 190 120 150V110L200 70Z" fill="#2B6CB0"/>
+  
+  <!-- Lock -->
+  <rect x="170" y="130" width="60" height="40" rx="5" fill="#63B3ED"/>
+  <rect x="180" y="100" width="40" height="30" rx="5" fill="#63B3ED"/>
+  <circle cx="200" cy="115" r="5" fill="#2B6CB0"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="80" r="10" fill="#4299E1" opacity="0.5"/>
+  <circle cx="250" cy="80" r="10" fill="#4299E1" opacity="0.5"/>
+  <circle cx="200" cy="200" r="15" fill="#4299E1" opacity="0.5"/>
+</svg> 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F7FAFC"/>
+  
+  <!-- Cloud -->
+  <path d="M100 150C100 120 125 100 150 100C175 100 200 120 200 150C225 150 250 170 250 200C250 230 225 250 200 250H100C75 250 50 230 50 200C50 170 75 150 100 150Z" fill="#4299E1"/>
+  
+  <!-- Server Rack -->
+  <rect x="250" y="100" width="100" height="150" rx="5" fill="#2D3748"/>
+  <rect x="260" y="110" width="80" height="20" rx="2" fill="#4A5568"/>
+  <rect x="260" y="140" width="80" height="20" rx="2" fill="#4A5568"/>
+  <rect x="260" y="170" width="80" height="20" rx="2" fill="#4A5568"/>
+  <rect x="260" y="200" width="80" height="20" rx="2" fill="#4A5568"/>
+  
+  <!-- Connection Lines -->
+  <path d="M200 150L250 150" stroke="#4299E1" stroke-width="4" stroke-dasharray="4 4"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="100" r="10" fill="#63B3ED" opacity="0.5"/>
+  <circle cx="250" cy="100" r="10" fill="#63B3ED" opacity="0.5"/>
+  <circle cx="150" cy="250" r="10" fill="#63B3ED" opacity="0.5"/>
+</svg> 

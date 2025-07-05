@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#F7FAFC"/>
+  
+  <!-- Team Circle -->
+  <circle cx="200" cy="150" r="80" fill="#4299E1" opacity="0.1"/>
+  
+  <!-- People Silhouettes -->
+  <path d="M160 120C160 108.954 168.954 100 180 100C191.046 100 200 108.954 200 120V140C200 151.046 191.046 160 180 160C168.954 160 160 151.046 160 140V120Z" fill="#4299E1"/>
+  <path d="M220 120C220 108.954 228.954 100 240 100C251.046 100 260 108.954 260 120V140C260 151.046 251.046 160 240 160C228.954 160 220 151.046 220 140V120Z" fill="#4299E1"/>
+  <path d="M190 100C190 88.9543 198.954 80 210 80C221.046 80 230 88.9543 230 100V120C230 131.046 221.046 140 210 140C198.954 140 190 131.046 190 120V100Z" fill="#4299E1"/>
+  
+  <!-- Connection Lines -->
+  <path d="M180 130L220 130" stroke="#4299E1" stroke-width="4" stroke-dasharray="4 4"/>
+  <path d="M210 110L210 150" stroke="#4299E1" stroke-width="4" stroke-dasharray="4 4"/>
+  <path d="M190 120L230 120" stroke="#4299E1" stroke-width="4" stroke-dasharray="4 4"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="80" r="10" fill="#4299E1" opacity="0.5"/>
+  <circle cx="250" cy="80" r="10" fill="#4299E1" opacity="0.5"/>
+  <circle cx="200" cy="220" r="15" fill="#4299E1" opacity="0.5"/>
+  
+  <!-- Stars -->
+  <path d="M100 150L105 160L115 160L107.5 167.5L112.5 177.5L100 172.5L87.5 177.5L92.5 167.5L85 160L95 160L100 150Z" fill="#4299E1" opacity="0.5"/>
+  <path d="M300 150L305 160L315 160L307.5 167.5L312.5 177.5L300 172.5L287.5 177.5L292.5 167.5L285 160L295 160L300 150Z" fill="#4299E1" opacity="0.5"/>
+</svg> 
