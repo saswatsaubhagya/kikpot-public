@@ -58,11 +58,11 @@ export default function Navbar() {
             >
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
-            // Remove stray mobile link from desktop div
-            // Desktop ends with theme button
+            {/* Remove stray mobile link from desktop div */}
+            {/* Desktop ends with theme button */}
             </div>
             
-            // Mobile Menu Button
+            {/* Mobile Menu Button */}
             <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 focus:outline-none"
@@ -92,7 +92,7 @@ export default function Navbar() {
             </button>
             </div>
             
-            // Mobile Navigation
+            {/* Mobile Navigation */}
             {isOpen && (
             <motion.div
             initial={{ opacity: 0, y: -20 }}

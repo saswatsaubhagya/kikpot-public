@@ -55,7 +55,7 @@ export default function About() {
                 Our Mission
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                At Kikpot, we're dedicated to transforming businesses through innovative technology solutions. Our mission is to empower organizations with cutting-edge IT services that drive growth, efficiency, and success in the digital age.
+                At Kikpot, we&apos;re dedicated to transforming businesses through innovative technology solutions. Our mission is to empower organizations with cutting-edge IT services that drive growth, efficiency, and success in the digital age.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start">

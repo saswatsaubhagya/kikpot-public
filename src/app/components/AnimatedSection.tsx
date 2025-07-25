@@ -1,15 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, TargetAndTransition, Transition } from 'framer-motion';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
-  initial?: any;
-  animate?: any;
-  transition?: any;
-  whileInView?: any;
-  viewport?: any;
+  initial?: TargetAndTransition | boolean;
+  animate?: TargetAndTransition | string;
+  transition?: Transition;
+  whileInView?: TargetAndTransition | string;
+  viewport?: {
+    once?: boolean;
+    amount?: number | 'some' | 'all';
+    margin?: string;
+  };
 }
 
 export default function AnimatedSection({

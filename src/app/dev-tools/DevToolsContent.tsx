@@ -61,7 +61,7 @@ function JSONFormatter() {
       const parsed = JSON.parse(input);
       const formatted = JSON.stringify(parsed, null, 2);
       setOutput(formatted);
-    } catch (err) {
+    } catch {
       setError("Invalid JSON format");
       setOutput("");
     }
@@ -72,7 +72,7 @@ function JSONFormatter() {
       await navigator.clipboard.writeText(output);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
+    } catch {
       setError("Failed to copy to clipboard");
     }
   };

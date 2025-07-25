@@ -172,7 +172,7 @@ export default function Home() {
                 Ready to Transform Your Business?
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
-                Let's discuss how we can help you achieve your digital goals
+                Let&apos;s discuss how we can help you achieve your digital goals
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
