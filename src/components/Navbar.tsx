@@ -7,8 +7,10 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState('light');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
@@ -26,10 +28,18 @@ export default function Navbar() {
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
     localStorage.setItem('theme', newTheme);
   };
 
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50">
       <div className="container mx-auto px-6">
@@ -62,9 +72,12 @@ export default function Navbar() {
                 Dev Tool
               </motion.button>
             </Link>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 border border-gray-200 dark:border-gray-700"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
               {theme === 'light' ? (
                 <svg className="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,7 +88,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               )}
-            </button>
+            </motion.button>
             </div>
             
             {/* Mobile Menu Button */}
