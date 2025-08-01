@@ -9,8 +9,18 @@ export default function Navbar() {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setTheme(isDark ? 'dark' : 'light');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    } else {
+      // Check system preference if no saved theme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const defaultTheme = prefersDark ? 'dark' : 'light';
+      setTheme(defaultTheme);
+      document.documentElement.classList.toggle('dark', defaultTheme === 'dark');
+      localStorage.setItem('theme', defaultTheme);
+    }
   }, []);
 
   const toggleTheme = () => {
@@ -30,7 +40,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 ml-auto">
             <Link href="/" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Home
             </Link>
@@ -52,12 +62,7 @@ export default function Navbar() {
                 Dev Tool
               </motion.button>
             </Link>
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
-            >
-              {theme === 'light' ? '🌙' : '☀️'}
-            </button>
+            // Removed the theme toggle button here
             {/* Remove stray mobile link from desktop div */}
             {/* Desktop ends with theme button */}
             </div>
