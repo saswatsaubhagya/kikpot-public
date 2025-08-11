@@ -1,23 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="400" height="300" fill="#F7FAFC"/>
-  
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
   <!-- Cloud -->
-  <path d="M100 150C100 120 125 100 150 100C175 100 200 120 200 150C225 150 250 170 250 200C250 230 225 250 200 250H100C75 250 50 230 50 200C50 170 75 150 100 150Z" fill="#4299E1"/>
-  
-  <!-- Server Rack -->
-  <rect x="250" y="100" width="100" height="150" rx="5" fill="#2D3748"/>
-  <rect x="260" y="110" width="80" height="20" rx="2" fill="#4A5568"/>
-  <rect x="260" y="140" width="80" height="20" rx="2" fill="#4A5568"/>
-  <rect x="260" y="170" width="80" height="20" rx="2" fill="#4A5568"/>
-  <rect x="260" y="200" width="80" height="20" rx="2" fill="#4A5568"/>
-  
-  <!-- Connection Lines -->
-  <path d="M200 150L250 150" stroke="#4299E1" stroke-width="4" stroke-dasharray="4 4"/>
-  
-  <!-- Decorative Elements -->
-  <circle cx="150" cy="100" r="10" fill="#63B3ED" opacity="0.5"/>
-  <circle cx="250" cy="100" r="10" fill="#63B3ED" opacity="0.5"/>
-  <circle cx="150" cy="250" r="10" fill="#63B3ED" opacity="0.5"/>
-</svg> 
+  <path d="M100 150 Q 150 100 200 150 Q 250 100 300 150 Q 350 200 300 250 Q 250 300 200 250 Q 150 300 100 250 Q 50 200 100 150" fill="#ADD8E6" stroke="#87CEEB" stroke-width="2"/>
+  <!-- Data arrows -->
+  <line x1="150" y1="200" x2="150" y2="250" stroke="#0000FF" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="250" y1="200" x2="250" y2="250" stroke="#0000FF" stroke-width="4" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0000FF"/>
+    </marker>
+  </defs>
+  <!-- Servers below -->
+  <rect x="120" y="260" width="60" height="30" fill="#808080" stroke="#000000" stroke-width="2"/>
+  <rect x="220" y="260" width="60" height="30" fill="#808080" stroke="#000000" stroke-width="2"/>
+</svg>

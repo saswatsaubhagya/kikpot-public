@@ -1,38 +1,55 @@
-'use client';
+"use client";
 
-import { motion, TargetAndTransition, Transition } from 'framer-motion';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  initial?: any;
+  animate?: any;
+  exit?: any;
+  transition?: any;
+  whileInView?: any;
+  viewport?: any;
   className?: string;
-  initial?: TargetAndTransition | boolean;
-  animate?: TargetAndTransition | string;
-  transition?: Transition;
-  whileInView?: TargetAndTransition | string;
-  viewport?: {
-    once?: boolean;
-    amount?: number | 'some' | 'all';
-    margin?: string;
-  };
+  delay?: number;
+  duration?: number;
+  ease?: string;
 }
 
 export default function AnimatedSection({
   children,
-  className = '',
-  initial,
-  animate,
-  transition,
+  initial = { opacity: 0, y: 20 },
+  animate = { opacity: 1, y: 0 },
+  exit = { opacity: 0, y: 20 },
+  transition = { duration: 0.6, ease: "easeOut" },
   whileInView,
-  viewport,
+  viewport = { once: true, margin: "-100px" },
+  className = "",
+  delay = 0,
+  duration = 0.6,
+  ease = "easeOut"
 }: AnimatedSectionProps) {
+  const motionProps = {
+    initial,
+    animate,
+    exit,
+    transition: {
+      ...transition,
+      delay,
+      duration,
+      ease
+    },
+    whileInView,
+    viewport,
+    className
+  };
+
   return (
     <motion.div
-      className={className}
-      initial={initial}
-      animate={animate}
-      transition={transition}
-      whileInView={whileInView}
-      viewport={viewport}
+      {...motionProps}
+      whileHover={whileInView ? undefined : { scale: 1.02, y: -5 }}
+      className={`${className}`}
     >
       {children}
     </motion.div>

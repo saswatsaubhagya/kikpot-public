@@ -1,26 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="400" height="300" fill="#F7FAFC"/>
-  
-  <!-- Code Window -->
-  <rect x="50" y="30" width="300" height="240" rx="10" fill="#2D3748"/>
-  <rect x="60" y="40" width="280" height="220" rx="5" fill="#4A5568"/>
-  
-  <!-- Code Lines -->
-  <g fill="#63B3ED">
-    <rect x="80" y="60" width="120" height="8" rx="2"/>
-    <rect x="80" y="80" width="100" height="8" rx="2"/>
-    <rect x="80" y="100" width="140" height="8" rx="2"/>
-    <rect x="80" y="120" width="90" height="8" rx="2"/>
-    <rect x="80" y="140" width="110" height="8" rx="2"/>
-    <rect x="80" y="160" width="130" height="8" rx="2"/>
-    <rect x="80" y="180" width="100" height="8" rx="2"/>
-    <rect x="80" y="200" width="120" height="8" rx="2"/>
-  </g>
-  
-  <!-- Decorative Elements -->
-  <circle cx="320" cy="60" r="10" fill="#4299E1" opacity="0.5"/>
-  <circle cx="320" cy="90" r="10" fill="#4299E1" opacity="0.5"/>
-  <circle cx="320" cy="120" r="10" fill="#4299E1" opacity="0.5"/>
-</svg> 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Laptop body -->
+  <rect x="50" y="50" width="300" height="180" rx="10" fill="#E0E0E0" stroke="#A0A0A0" stroke-width="2"/>
+  <!-- Screen -->
+  <rect x="60" y="60" width="280" height="150" fill="#FFFFFF" stroke="#C0C0C0" stroke-width="2"/>
+  <!-- Code lines -->
+  <line x1="80" y1="80" x2="120" y2="80" stroke="#0000FF" stroke-width="2"/>
+  <line x1="80" y1="100" x2="140" y2="100" stroke="#FF0000" stroke-width="2"/>
+  <line x1="80" y1="120" x2="100" y2="120" stroke="#00FF00" stroke-width="2"/>
+  <!-- Keyboard -->
+  <rect x="60" y="220" width="280" height="10" fill="#C0C0C0"/>
+  <!-- Stand -->
+  <rect x="50" y="230" width="300" height="20" fill="#D0D0D0" stroke="#A0A0A0" stroke-width="2"/>
+</svg>
