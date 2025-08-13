@@ -40,6 +40,19 @@ import UrlParser from "./tools/UrlParser";
 import BasicAuthGenerator from "./tools/BasicAuthGenerator";
 import OpenGraphMetaGenerator from "./tools/OpenGraphMetaGenerator";
 import OTPCodeGenerator from "./tools/OTPCodeGenerator";
+import JwtParser from "./tools/JwtParser";
+import KeycodeInfo from "./tools/KeycodeInfo";
+import SlugifyString from "./tools/SlugifyString";
+import HtmlWysiwygEditor from "./tools/HtmlWysiwygEditor";
+import JsonDiff from "./tools/JsonDiff";
+import QrCodeGenerator from "./tools/QrCodeGenerator";
+import WifiQrCodeGenerator from "./tools/WifiQrCodeGenerator";
+import SvgPlaceholderGenerator from "./tools/SvgPlaceholderGenerator";
+import MathEvaluator from "./tools/MathEvaluator";
+import PercentageCalculator from "./tools/PercentageCalculator";
+import TemperatureConverter from "./tools/TemperatureConverter";
+import LoremIpsumGenerator from "./tools/LoremIpsumGenerator";
+import TextStatistics from "./tools/TextStatistics";
 
 export default function ToolRenderer({ toolId }: { toolId: string }) {
   const tool = useMemo(() => tools.find((t) => t.id === toolId), [toolId]);
@@ -119,6 +132,32 @@ export default function ToolRenderer({ toolId }: { toolId: string }) {
         return <OpenGraphMetaGenerator />;
       case "otp-generator":
         return <OTPCodeGenerator />;
+      case "jwt-parser":
+        return <JwtParser />;
+      case "keycode-info":
+        return <KeycodeInfo />;
+      case "slugify-string":
+        return <SlugifyString />;
+      case "html-wysiwyg-editor":
+        return <HtmlWysiwygEditor />;
+      case "json-diff":
+        return <JsonDiff />;
+      case "qr-code-generator":
+        return <QrCodeGenerator />;
+      case "wifi-qr-code-generator":
+        return <WifiQrCodeGenerator />;
+      case "svg-placeholder-generator":
+        return <SvgPlaceholderGenerator />;
+      case "math-evaluator":
+        return <MathEvaluator />;
+      case "percentage-calculator":
+        return <PercentageCalculator />;
+      case "temperature-converter":
+        return <TemperatureConverter />;
+      case "lorem-ipsum-generator":
+        return <LoremIpsumGenerator />;
+      case "text-statistics":
+        return <TextStatistics />;
       default:
         return null;
     }
