@@ -70,7 +70,7 @@ export default function WifiQrCodeGenerator() {
       return;
     }
     QRCode.toDataURL(value, qrOptions)
-      .then((url) => {
+      .then((url: string) => {
         setError(null);
         setDataUrl(url);
       })

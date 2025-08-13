@@ -119,11 +119,11 @@ function DiffView({ node, indent = 0, onlyChanges }: { node: DiffNode; indent?: 
 
   // object
   const entries = Object.entries(node.children);
-  const visible = entries.filter(([_, child]) => (onlyChanges ? child.kind !== "equal" : true));
+  const visible = entries.filter(([, child]) => (onlyChanges ? child.kind !== "equal" : true));
   if (visible.length === 0 && onlyChanges) return null;
   return (
     <div>
-      <div className="whitespace-pre">{pad(indent)}{{}.constructor.name.replace("Object", "{")}</div>
+      <div className="whitespace-pre">{pad(indent)}{'{'}</div>
       {visible.map(([key, child]) => (
         <div key={key} className="whitespace-pre">
           {pad(indent + 2)}{key}: {child.kind === "object" || child.kind === "array" ? null : null}
@@ -134,7 +134,7 @@ function DiffView({ node, indent = 0, onlyChanges }: { node: DiffNode; indent?: 
           )}
         </div>
       ))}
-      <div className="whitespace-pre">{pad(indent)}}}</div>
+      <div className="whitespace-pre">{pad(indent)}{'}'}</div>
     </div>
   );
 }

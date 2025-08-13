@@ -23,13 +23,15 @@ export default function Navigation() {
               Contact
             </Link>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
-          >
-            Get Started
-          </motion.button>
+          <Link href="/contact" className="hidden md:block">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
+            >
+              Get Started
+            </motion.span>
+          </Link>
         </div>
       </div>
     </nav>

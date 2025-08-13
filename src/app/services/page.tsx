@@ -315,9 +315,11 @@ export default function ServicesPage() {
                   <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
                   Careers
                 </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Blog
+                <li>
+                  <Link href="/blog" className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
+                    <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
+                    Blog
+                  </Link>
                 </li>
                 <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
                   <span className="w-1 h-1 bg-purple-400 rounded-full"></span>

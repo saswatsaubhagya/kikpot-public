@@ -52,7 +52,7 @@ export default function QrCodeGenerator() {
   useEffect(() => {
     const value = text || "";
     QRCode.toDataURL(value, qrOptions)
-      .then((url) => {
+      .then((url: string) => {
         setError(null);
         setDataUrl(url);
       })

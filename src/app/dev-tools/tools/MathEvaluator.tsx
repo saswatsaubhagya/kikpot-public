@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { create, all, MathJsStatic } from "mathjs";
+import { create, all, MathJsStatic, ConfigOptions } from "mathjs";
 
-const math = create(all, {} as any) as MathJsStatic;
+const math = create(all, {} as ConfigOptions) as MathJsStatic;
 
 export default function MathEvaluator() {
   const [expr, setExpr] = useState("");
@@ -55,13 +55,13 @@ export default function MathEvaluator() {
           );
           const node = math.parse(left).compile();
           const val = node.evaluate(assigns);
-          setResult(math.format(val as any, { precision: 14 }));
+          setResult(math.format(val as unknown as number, { precision: 14 }));
           return;
         }
       }
       const val = math.evaluate(expr);
-      setResult(math.format(val as any, { precision: 14 }));
-    } catch (e) {
+      setResult(math.format(val as unknown as number, { precision: 14 }));
+      } catch {
       setResult("");
       setError("Invalid expression");
     }
