@@ -335,7 +335,7 @@ export default function ServicesPage() {
                 </li>
                 <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
                   <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  +1 (555) 123-4567
+                  +91 7653955621
                 </li>
               </ul>
             </div>

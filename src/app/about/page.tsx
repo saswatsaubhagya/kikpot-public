@@ -191,7 +191,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+      {/* <section className="py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="container mx-auto px-6">
           <AnimatedSection
             initial={{ opacity: 0, y: 20 }}
@@ -235,7 +235,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
