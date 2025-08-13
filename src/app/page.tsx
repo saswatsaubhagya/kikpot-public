@@ -83,12 +83,12 @@ export default function Home() {
                 transition={{ duration: 1, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
               >
-                <button className="btn-primary px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/30">
+                <Link href="/contact" className="btn-primary px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/30">
                   Get Started
-                </button>
-                <button className="btn-secondary px-12 py-5 text-lg backdrop-blur-sm border-white/20 text-white hover:bg-white/10">
+                </Link>
+                <Link href="/services" className="btn-secondary px-12 py-5 text-lg backdrop-blur-sm border-white/20 text-white hover:bg-white/10">
                   Learn More
-                </button>
+                </Link>
               </AnimatedSection>
               
               {/* Stats */}
@@ -281,12 +281,12 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="btn-primary px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/30">
+                <Link href="/contact" className="btn-primary px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/30">
                   Contact Us
-                </button>
-                <button className="btn-secondary px-12 py-5 text-lg backdrop-blur-sm">
+                </Link>
+                <Link href="/services" className="btn-secondary px-12 py-5 text-lg backdrop-blur-sm">
                   Learn More
-                </button>
+                </Link>
               </div>
               
               {/* Contact info */}
@@ -317,7 +317,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div>
+            {/* <div>
               <h4 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">Services</h4>
               <ul className="space-y-4 text-gray-600 dark:text-gray-400">
                 <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
@@ -337,7 +337,7 @@ export default function Home() {
                   AI Solutions
                 </li>
               </ul>
-            </div>
+            </div> */}
             
             <div>
               <h4 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">Company</h4>
@@ -348,13 +348,15 @@ export default function Home() {
                     About Us
                   </Link>
                 </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
+                {/* <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
                   <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
                   Careers
-                </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Blog
+                </li> */}
+                <li>
+                  <Link href="/blog" className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
+                    <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
+                    Blog
+                  </Link>
                 </li>
                 <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
                   <span className="w-1 h-1 bg-purple-400 rounded-full"></span>

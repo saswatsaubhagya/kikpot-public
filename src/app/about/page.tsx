@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AnimatedSection from "../components/AnimatedSection";
 import Navbar from "../../components/Navbar";
+import Link from "next/link";
 
 export default function About() {
   const currentYear = new Date().getFullYear();
@@ -255,8 +256,8 @@ export default function About() {
               Let&apos;s discuss how we can help you achieve your digital goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary px-10 py-4">Contact Us</button>
-              <button className="btn-secondary px-10 py-4">Explore Services</button>
+              <Link href="/contact" className="btn-primary px-10 py-4">Contact Us</Link>
+              <Link href="/services" className="btn-secondary px-10 py-4">Explore Services</Link>
             </div>
           </AnimatedSection>
         </div>
