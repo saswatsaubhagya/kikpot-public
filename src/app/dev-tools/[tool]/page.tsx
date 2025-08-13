@@ -4,6 +4,12 @@ import { notFound } from "next/navigation";
 import { tools } from "../toolsData";
 import ToolRenderer from "../ToolRenderer";
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return tools.map((t) => ({ tool: t.id }));
+}
+
 type ToolPageProps = { params: Promise<{ tool: string }> };
 
 export default async function ToolPage({ params }: ToolPageProps) {
