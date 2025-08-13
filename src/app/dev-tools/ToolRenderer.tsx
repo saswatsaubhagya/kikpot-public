@@ -22,6 +22,9 @@ import DateTimeConverter from "./tools/DateTimeConverter";
 import IntegerBaseConverter from "./tools/IntegerBaseConverter";
 import RomanNumeralConverter from "./tools/RomanNumeralConverter";
 import Base64StringTool from "./tools/Base64StringTool";
+import CaseConverter from "./tools/CaseConverter";
+import TextToNato from "./tools/TextToNato";
+import TextToAsciiBinary from "./tools/TextToAsciiBinary";
 
 export default function ToolRenderer({ toolId }: { toolId: string }) {
   const tool = useMemo(() => tools.find((t) => t.id === toolId), [toolId]);
@@ -65,6 +68,12 @@ export default function ToolRenderer({ toolId }: { toolId: string }) {
         return <IntegerBaseConverter />;
       case "base64-string":
         return <Base64StringTool />;
+      case "case-converter":
+        return <CaseConverter />;
+      case "text-to-nato":
+        return <TextToNato />;
+      case "text-to-ascii-binary":
+        return <TextToAsciiBinary />;
       default:
         return null;
     }
