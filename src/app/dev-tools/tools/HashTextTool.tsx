@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { WebCryptoAlgo, bytesToBase64, bytesToHex, computeHashRaw } from "./hashUtils";
 
 export default function HashTextTool() {
@@ -9,7 +9,7 @@ export default function HashTextTool() {
   const [results, setResults] = useState<Record<WebCryptoAlgo, string>>({} as Record<WebCryptoAlgo, string>);
   const [copiedAlgo, setCopiedAlgo] = useState<WebCryptoAlgo | null>(null);
 
-  const algorithms: WebCryptoAlgo[] = ["SHA-1", "SHA-256", "SHA-384", "SHA-512"];
+  const algorithms = useMemo<WebCryptoAlgo[]>(() => ["SHA-1", "SHA-256", "SHA-384", "SHA-512"], []);
 
   useEffect(() => {
     let cancelled = false;
@@ -32,7 +32,7 @@ export default function HashTextTool() {
     return () => {
       cancelled = true;
     };
-  }, [text, encoding]);
+  }, [text, encoding, algorithms]);
 
   const copy = async (algo: WebCryptoAlgo) => {
     try {

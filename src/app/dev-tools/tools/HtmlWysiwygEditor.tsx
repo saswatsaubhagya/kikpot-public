@@ -30,7 +30,7 @@ export default function HtmlWysiwygEditor() {
     if (editorRef.current && !editorRef.current.innerHTML) {
       editorRef.current.innerHTML = html;
     }
-  }, []);
+  }, [html]);
 
   const onInput = () => {
     const next = editorRef.current?.innerHTML ?? "";

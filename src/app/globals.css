@@ -82,6 +82,20 @@
   select {
     @apply text-gray-900 dark:text-white;
   }
+  
+  /* Ensure all text inputs have white text by default */
+  input,
+  textarea {
+    color: white !important;
+  }
+  
+  /* Override for light mode to maintain readability */
+  @media (prefers-color-scheme: light) {
+    input,
+    textarea {
+      color: #111827 !important; /* text-gray-900 */
+    }
+  }
 }
 
 @layer components {
