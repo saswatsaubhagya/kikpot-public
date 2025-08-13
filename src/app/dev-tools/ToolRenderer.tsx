@@ -25,6 +25,21 @@ import Base64StringTool from "./tools/Base64StringTool";
 import CaseConverter from "./tools/CaseConverter";
 import TextToNato from "./tools/TextToNato";
 import TextToAsciiBinary from "./tools/TextToAsciiBinary";
+import TextToUnicode from "./tools/TextToUnicode";
+import YamlToJson from "./tools/YamlToJson";
+import YamlToToml from "./tools/YamlToToml";
+import JsonToYaml from "./tools/JsonToYaml";
+import JsonToToml from "./tools/JsonToToml";
+import TomlToJson from "./tools/TomlToJson";
+import TomlToYaml from "./tools/TomlToYaml";
+import ListConverter from "./tools/ListConverter";
+import XmlToJson from "./tools/XmlToJson";
+import JsonToXml from "./tools/JsonToXml";
+import MarkdownToHtml from "./tools/MarkdownToHtml";
+import UrlParser from "./tools/UrlParser";
+import BasicAuthGenerator from "./tools/BasicAuthGenerator";
+import OpenGraphMetaGenerator from "./tools/OpenGraphMetaGenerator";
+import OTPCodeGenerator from "./tools/OTPCodeGenerator";
 
 export default function ToolRenderer({ toolId }: { toolId: string }) {
   const tool = useMemo(() => tools.find((t) => t.id === toolId), [toolId]);
@@ -74,6 +89,36 @@ export default function ToolRenderer({ toolId }: { toolId: string }) {
         return <TextToNato />;
       case "text-to-ascii-binary":
         return <TextToAsciiBinary />;
+      case "text-to-unicode":
+        return <TextToUnicode />;
+      case "yaml-to-json":
+        return <YamlToJson />;
+      case "yaml-to-toml":
+        return <YamlToToml />;
+      case "json-to-yaml":
+        return <JsonToYaml />;
+      case "json-to-toml":
+        return <JsonToToml />;
+      case "toml-to-json":
+        return <TomlToJson />;
+      case "toml-to-yaml":
+        return <TomlToYaml />;
+      case "list-converter":
+        return <ListConverter />;
+      case "xml-to-json":
+        return <XmlToJson />;
+      case "json-to-xml":
+        return <JsonToXml />;
+      case "markdown-to-html":
+        return <MarkdownToHtml />;
+      case "url-parser":
+        return <UrlParser />;
+      case "basic-auth-generator":
+        return <BasicAuthGenerator />;
+      case "open-graph-meta-generator":
+        return <OpenGraphMetaGenerator />;
+      case "otp-generator":
+        return <OTPCodeGenerator />;
       default:
         return null;
     }
