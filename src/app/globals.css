@@ -70,6 +70,18 @@
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--muted-foreground) / 0.5);
   }
+
+  /* Ensure text in form controls is white in dark mode and readable in light mode */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="search"],
+  input[type="url"],
+  textarea,
+  select {
+    @apply text-gray-900 dark:text-white;
+  }
 }
 
 @layer components {

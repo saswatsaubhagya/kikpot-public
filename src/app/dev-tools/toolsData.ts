@@ -1,0 +1,184 @@
+export interface ToolMeta {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  category: string;
+  keywords: string[];
+}
+
+export const tools: ToolMeta[] = [
+  {
+    id: "json-formatter",
+    name: "JSON Formatter",
+    description: "Format and validate JSON data",
+    icon: "{}",
+    category: "Formatters",
+    keywords: ["json", "format", "pretty", "validate"],
+  },
+  {
+    id: "integer-base-converter",
+    name: "Integer base converter",
+    description: "Convert a number between bases (binary, octal, decimal, hex, base64, …)",
+    icon: "🔢",
+    category: "Utilities",
+    keywords: [
+      "base",
+      "radix",
+      "binary",
+      "octal",
+      "decimal",
+      "hex",
+      "hexadecimal",
+      "base64",
+      "convert",
+      "number",
+    ],
+  },
+  {
+    id: "roman-numeral-converter",
+    name: "Roman numeral converter",
+    description: "Convert Roman numerals to numbers and numbers to Roman numerals",
+    icon: "🏛️",
+    category: "Utilities",
+    keywords: [
+      "roman",
+      "arabic",
+      "numeral",
+      "converter",
+      "numbers",
+    ],
+  },
+  {
+    id: "base64-string",
+    name: "Base64 string encoder/decoder",
+    description: "Simply encode and decode strings into base64 with URL‑safe option",
+    icon: "🧾",
+    category: "Encoders",
+    keywords: ["base64", "encode", "decode", "url", "string"],
+  },
+  {
+    id: "bip39-generator",
+    name: "BIP39 passphrase generator",
+    description: "Generate a BIP39 mnemonic from entropy, or derive entropy from mnemonic",
+    icon: "🔐",
+    category: "Security",
+    keywords: [
+      "bip39",
+      "mnemonic",
+      "seed",
+      "passphrase",
+      "entropy",
+      "wallet",
+      "crypto",
+    ],
+  },
+  {
+    id: "encrypt-decrypt",
+    name: "Encrypt / decrypt text",
+    description: "Encrypt clear text and decrypt ciphertext with AES, TripleDES, RC4 or Rabbit",
+    icon: "🧮",
+    category: "Security",
+    keywords: ["encrypt", "decrypt", "aes", "des", "rc4", "rabbit", "cipher"],
+  },
+  {
+    id: "uuid-generator",
+    name: "UUIDs generator",
+    description: "Generate NIL, v1, v3, v4 and v5 UUIDs with copy & refresh",
+    icon: "🆔",
+    category: "Identifiers",
+    keywords: ["uuid", "v1", "v3", "v4", "v5", "identifier", "guid"],
+  },
+  {
+    id: "token-generator",
+    name: "Token Generator",
+    description: "Generate random strings with customizable character sets",
+    icon: "🔑",
+    category: "Security",
+    keywords: ["token", "random", "password", "string", "generator"],
+  },
+  {
+    id: "hash-text",
+    name: "Hash text",
+    description: "Hash a text string using SHA-1, SHA-256, SHA-384, or SHA-512",
+    icon: "🔒",
+    category: "Security",
+    keywords: ["hash", "sha1", "sha256", "sha384", "sha512", "digest"],
+  },
+  {
+    id: "bcrypt",
+    name: "Bcrypt",
+    description: "Hash and compare text using bcrypt",
+    icon: "🧂",
+    category: "Security",
+    keywords: ["bcrypt", "salt", "password", "hash", "compare"],
+  },
+  {
+    id: "url-encoder",
+    name: "URL Encoder/Decoder",
+    description: "Encode or decode URL strings",
+    icon: "🔗",
+    category: "Encoders",
+    keywords: ["url", "encode", "decode", "uri", "component"],
+  },
+  {
+    id: "hash-generator",
+    name: "Hash Generator",
+    description: "Generate SHA-1 and SHA-256 hashes",
+    icon: "🔐",
+    category: "Security",
+    keywords: ["hash", "sha1", "sha256", "digest", "crypto"],
+  },
+  {
+    id: "hmac-generator",
+    name: "Hmac generator",
+    description: "Compute HMAC with a secret key using SHA-1/256/384/512 and copy the result",
+    icon: "🔏",
+    category: "Security",
+    keywords: ["hmac", "hash", "sha1", "sha256", "sha384", "sha512", "mac"],
+  },
+  {
+    id: "rsa-keypair",
+    name: "RSA key pair generator",
+    description: "Generate new RSA private and public keys (SPKI/PKCS8) with selectable bit size",
+    icon: "🔑",
+    category: "Security",
+    keywords: ["rsa", "key", "public", "private", "pkcs8", "spki", "pem"],
+  },
+  {
+    id: "password-strength",
+    name: "Password strength analyser",
+    description: "Client-side strength and brute-force time estimation",
+    icon: "🛡️",
+    category: "Security",
+    keywords: ["password", "strength", "entropy", "bruteforce", "estimate"],
+  },
+  {
+    id: "date-time-converter",
+    name: "Date-time converter",
+    description: "Convert between multiple date/time formats and timestamps",
+    icon: "🗓️",
+    category: "Utilities",
+    keywords: ["date", "time", "timestamp", "iso", "rfc", "excel", "mongo"],
+  },
+  {
+    id: "color-converter",
+    name: "Color Converter",
+    description: "Convert between HEX, RGB and HSL",
+    icon: "🎨",
+    category: "Colors",
+    keywords: ["color", "hex", "rgb", "hsl", "convert"],
+  },
+  {
+    id: "regex-tester",
+    name: "Regex Tester",
+    description: "Test and validate regular expressions",
+    icon: "🔍",
+    category: "Testing",
+    keywords: ["regex", "regexp", "test", "match", "pattern"],
+  },
+];
+
+export const categories = ["All", ...Array.from(new Set(tools.map((t) => t.category)))];
+
+

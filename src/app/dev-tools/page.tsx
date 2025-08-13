@@ -1,11 +1,11 @@
 import Navbar from "@/components/Navbar";
-import DevToolsContent from "./DevToolsContent";
+import DevToolsIndex from "./DevToolsIndex";
 
 export default function DevTools() {
   return (
     <>
       <Navbar />
-      <DevToolsContent />
+      <DevToolsIndex />
     </>
   );
 } 

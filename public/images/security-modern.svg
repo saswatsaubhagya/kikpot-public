@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A78BFA" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#60A5FA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="256" cy="256" r="220" fill="url(#glow)"/>
+
+  <!-- Shield -->
+  <path d="M256 96l104 36v100c0 84-56 136-104 168-48-32-104-84-104-168V132l104-36z" stroke="url(#g)" stroke-width="8" stroke-linejoin="round"/>
+
+  <!-- Lock -->
+  <rect x="208" y="220" width="96" height="80" rx="16" stroke="url(#g)" stroke-width="8"/>
+  <path d="M224 220v-16c0-24 20-44 44-44s44 20 44 44v16" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="256" cy="260" r="8" fill="url(#g)"/>
+  <path d="M256 268v20" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Circuit lines -->
+  <g stroke="url(#g)" stroke-width="6" stroke-linecap="round">
+    <path d="M208 260h-40"/>
+    <circle cx="164" cy="260" r="6" fill="url(#g)"/>
+    <path d="M304 260h40"/>
+    <circle cx="348" cy="260" r="6" fill="url(#g)"/>
+    <path d="M256 300v40"/>
+    <circle cx="256" cy="344" r="6" fill="url(#g)"/>
+    <path d="M256 220v-40"/>
+    <circle cx="256" cy="176" r="6" fill="url(#g)"/>
+  </g>
+</svg>
+
+

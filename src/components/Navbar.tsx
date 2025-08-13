@@ -6,25 +6,11 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState('light');
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else {
-      // Check system preference if no saved theme
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const defaultTheme = prefersDark ? 'dark' : 'light';
-      setTheme(defaultTheme);
-      document.documentElement.classList.toggle('dark', defaultTheme === 'dark');
-      localStorage.setItem('theme', defaultTheme);
-    }
-
     // Handle scroll effect
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -33,16 +19,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', newTheme);
-  };
 
   // Prevent hydration mismatch
   if (!mounted) {
@@ -106,28 +82,12 @@ export default function Navbar() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-2xl hover:from-purple-700 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-purple-500/25 font-medium border-0 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2"
                 >
-                  Dev Tool
+                  Dev Tools
                 </motion.button>
               </Link>
             </motion.div>
             
-            <motion.button
-              whileHover={{ scale: 1.05, rotate: 180 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={toggleTheme}
-              className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2"
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              {theme === 'light' ? (
-                <svg className="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              ) : (
-                <svg className="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              )}
-            </motion.button>
+            {/* Theme toggle removed */}
           </div>
           
           {/* Mobile Menu Button */}
@@ -204,23 +164,12 @@ export default function Navbar() {
                     whileTap={{ scale: 0.98 }}
                     className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-2xl hover:from-purple-700 hover:to-blue-700 transition-all w-full font-medium shadow-lg"
                   >
-                    Dev Tool
+                    Dev Tools
                   </motion.button>
                 </Link>
               </motion.div>
               
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => {
-                  toggleTheme();
-                  setIsOpen(false);
-                }}
-                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-left font-medium flex items-center gap-2 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                {theme === 'light' ? 'Dark Mode 🌙' : 'Light Mode ☀️'}
-              </motion.button>
+              {/* Theme toggle removed */}
             </div>
           </motion.div>
         )}

@@ -31,7 +31,7 @@ export default function Error({
         </h1>
         
         <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-          We encountered an unexpected error. Don't worry, our team has been notified and is working to fix it.
+          We encountered an unexpected error. Don&apos;t worry, our team has been notified and is working to fix it.
         </p>
         
         {/* Action buttons */}
