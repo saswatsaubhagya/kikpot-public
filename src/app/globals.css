@@ -176,3 +176,53 @@
     background: conic-gradient(from 0deg at 50% 50%, var(--tw-gradient-stops));
   }
 }
+
+/* Chatwoot widget positioning to avoid conflict with scroll-to-top button */
+.woot-widget-bubble {
+  bottom: 24px !important;
+  right: 96px !important;
+  z-index: 30 !important;
+}
+
+.woot-widget-holder {
+  bottom: 24px !important;
+  right: 96px !important;
+  z-index: 30 !important;
+}
+
+/* Chatwoot widget color customization */
+.woot-widget-bubble {
+  background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%) !important;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3) !important;
+  border: none !important;
+}
+
+.woot-widget-bubble:hover {
+  background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%) !important;
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4) !important;
+  transform: scale(1.05) !important;
+  transition: all 0.3s ease !important;
+}
+
+.woot-widget-bubble .woot-widget-bubble--icon {
+  color: white !important;
+}
+
+/* Customize chat window header */
+.woot--bubble-holder .woot-widget-holder iframe {
+  border-radius: 16px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 768px) {
+  .woot-widget-bubble {
+    bottom: 100px !important;
+    right: 24px !important;
+  }
+  
+  .woot-widget-holder {
+    bottom: 100px !important;
+    right: 24px !important;
+  }
+}
