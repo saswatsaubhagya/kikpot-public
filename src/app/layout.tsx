@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
+import N8nChat from "../components/N8nChat";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -65,31 +65,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        <Script
-          id="chatwoot-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(d,t) {
-                var BASE_URL="https://app.chatwoot.com";
-                var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-                g.src=BASE_URL+"/packs/js/sdk.js";
-                g.async = true;
-                s.parentNode.insertBefore(g,s);
-                g.onload=function(){
-                  window.chatwootSDK.run({
-                    websiteToken: '6mq3wuumzideRPhbtXDtVJAA',
-                    baseUrl: BASE_URL,
-                    widgetColor: '#8B5CF6',
-                    launcherTitle: 'Chat with us',
-                    showPopoutButton: true,
-                    darkMode: 'auto'
-                  })
-                }
-              })(document,"script");
-            `,
-          }}
-        />
+        <N8nChat />
       </body>
     </html>
   );
