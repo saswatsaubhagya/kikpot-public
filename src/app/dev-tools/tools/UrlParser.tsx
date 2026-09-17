@@ -56,30 +56,30 @@ export default function UrlParser() {
 
   const Field = ({ label, value }: { label: string; value: string }) => (
     <div className="space-y-2">
-      <div className="text-sm text-gray-600 dark:text-gray-400">{label}</div>
+      <div className="text-sm text-dim ">{label}</div>
       <div className="flex gap-2">
         <input
           readOnly
           value={value}
-          className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white"
+          className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text"
         />
-        <button onClick={() => copy(value)} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+        <button onClick={() => copy(value)} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
       </div>
     </div>
   );
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">Parse a URL into its separate constituent parts (protocol, origin, params, port, username, password, …)</p>
+      <p className="text-sm text-dim ">Parse a URL into its separate constituent parts (protocol, origin, params, port, username, password, …)</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-gray-100">Your url to parse:</h3>
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+          <h3 className="font-medium text-text ">Your url to parse:</h3>
           <input
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             placeholder="Paste your URL here..."
-            className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 text-white"
+            className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline focus:ring-2 focus:ring-brand/40 focus:border-brand text-text"
           />
 
           {parsed ? (
@@ -99,23 +99,23 @@ export default function UrlParser() {
           )}
         </section>
 
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-gray-100">Query parameters</h3>
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+          <h3 className="font-medium text-text ">Query parameters</h3>
           {parsed && parsed.params.length > 0 ? (
             <div className="space-y-3">
               {parsed.params.map((p, idx) => (
                 <div key={`${p.key}-${idx}`} className="grid grid-cols-1 gap-2">
                   <div className="flex items-center gap-2">
-                    <input readOnly value={p.key} className="w-48 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white" />
-                    <span className="text-gray-500">→</span>
-                    <input readOnly value={p.value} className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white" />
-                    <button onClick={() => copy(p.value)} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+                    <input readOnly value={p.key} className="w-48 h-10 px-3 rounded-xl border border-hairline bg-surface text-text" />
+                    <span className="text-dim">→</span>
+                    <input readOnly value={p.value} className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text" />
+                    <button onClick={() => copy(p.value)} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-sm text-gray-500">No parameters</div>
+            <div className="text-sm text-dim">No parameters</div>
           )}
         </section>
       </div>

@@ -150,109 +150,109 @@ export default function OTPCodeGenerator() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">Generate and validate time‑based OTP (one time password) for multi‑factor authentication.</p>
+      <p className="text-sm text-dim ">Generate and validate time‑based OTP (one time password) for multi‑factor authentication.</p>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
           <div className="space-y-2">
-            <label className="text-sm text-gray-600 dark:text-gray-400">Secret</label>
+            <label className="text-sm text-dim ">Secret</label>
             <div className="flex items-center gap-2">
               <input
                 value={secretBase32}
                 onChange={(e) => setSecretBase32(e.target.value)}
                 placeholder="Base32 secret (e.g., JBSWY3DPEHPK3PXP)"
-                className="flex-1 h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 text-white"
+                className="flex-1 h-12 px-3 rounded-2xl border bg-surface border-hairline focus:ring-2 focus:ring-brand/40 focus:border-brand text-text"
               />
-              <button onClick={() => setSecretBase32(randomSecretBase32())} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">↻</button>
+              <button onClick={() => setSecretBase32(randomSecretBase32())} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">↻</button>
             </div>
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm text-gray-600 dark:text-gray-400">Secret in hexadecimal</label>
+            <label className="text-sm text-dim ">Secret in hexadecimal</label>
             <div className="flex items-center gap-2">
-              <input readOnly value={secretHex} className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white" />
-              <button onClick={() => copy(secretHex)} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+              <input readOnly value={secretHex} className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text" />
+              <button onClick={() => copy(secretHex)} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Digits</span>
-              <input type="number" min={4} max={10} value={digits} onChange={(e) => setDigits(Math.max(4, Math.min(10, Number(e.target.value) || 6)))} className="w-20 h-8 text-center rounded-md bg-transparent text-white" />
+            <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+              <span className="text-sm text-dim ">Digits</span>
+              <input type="number" min={4} max={10} value={digits} onChange={(e) => setDigits(Math.max(4, Math.min(10, Number(e.target.value) || 6)))} className="w-20 h-8 text-center rounded-md bg-transparent text-text" />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Period (s)</span>
-              <input type="number" min={5} max={120} value={period} onChange={(e) => setPeriod(Math.max(5, Math.min(120, Number(e.target.value) || 30)))} className="w-20 h-8 text-center rounded-md bg-transparent text-white" />
+            <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+              <span className="text-sm text-dim ">Period (s)</span>
+              <input type="number" min={5} max={120} value={period} onChange={(e) => setPeriod(Math.max(5, Math.min(120, Number(e.target.value) || 30)))} className="w-20 h-8 text-center rounded-md bg-transparent text-text" />
             </label>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <label className="space-y-1">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Issuer</span>
-              <input value={issuer} onChange={(e) => setIssuer(e.target.value)} className="w-full h-10 px-3 rounded-xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <span className="text-sm text-dim ">Issuer</span>
+              <input value={issuer} onChange={(e) => setIssuer(e.target.value)} className="w-full h-10 px-3 rounded-xl border bg-surface border-hairline text-text" />
             </label>
             <label className="space-y-1">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Account</span>
-              <input value={account} onChange={(e) => setAccount(e.target.value)} className="w-full h-10 px-3 rounded-xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <span className="text-sm text-dim ">Account</span>
+              <input value={account} onChange={(e) => setAccount(e.target.value)} className="w-full h-10 px-3 rounded-xl border bg-surface border-hairline text-text" />
             </label>
           </div>
         </section>
 
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
           <div className="grid grid-cols-3 gap-3">
-            <div className="p-3 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50 text-center">
-              <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">Previous</div>
-              <div className="font-mono text-lg text-gray-900 dark:text-gray-100 select-all">{prev}</div>
+            <div className="p-3 rounded-xl border bg-surface border-hairline text-center">
+              <div className="text-xs text-dim mb-1">Previous</div>
+              <div className="font-mono text-lg text-text select-all">{prev}</div>
             </div>
-            <div className="p-3 rounded-xl border bg-gradient-to-br from-purple-600/10 to-blue-600/10 border-gray-200 dark:border-gray-700/50 text-center">
-              <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">Current OTP</div>
-              <div className="font-mono text-2xl text-gray-900 dark:text-gray-100 select-all">{current}</div>
+            <div className="p-3 rounded-xl border bg-gradient-to-br from-purple-600/10 to-blue-600/10 border-hairline text-center">
+              <div className="text-xs text-dim mb-1">Current OTP</div>
+              <div className="font-mono text-2xl text-text select-all">{current}</div>
             </div>
-            <div className="p-3 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50 text-center">
-              <div className="text-xs text-gray-600 dark:text-gray-300 mb-1">Next</div>
-              <div className="font-mono text-lg text-gray-900 dark:text-gray-100 select-all">{next}</div>
+            <div className="p-3 rounded-xl border bg-surface border-hairline text-center">
+              <div className="text-xs text-dim mb-1">Next</div>
+              <div className="font-mono text-lg text-text select-all">{next}</div>
             </div>
           </div>
 
-          <div className="h-2 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
+          <div className="h-2 rounded-full bg-surface-2 overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-purple-600 to-blue-600"
               style={{ width: `${((period - timeRemaining) / period) * 100}%` }}
             />
           </div>
-          <div className="text-xs text-gray-600 dark:text-gray-400">Next in {timeRemaining}s</div>
+          <div className="text-xs text-dim ">Next in {timeRemaining}s</div>
 
           <div className="grid grid-cols-1 gap-3">
             <label className="space-y-1">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Epoch</span>
+              <span className="text-sm text-dim ">Epoch</span>
               <div className="flex items-center gap-2">
-                <input readOnly value={epoch} className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white" />
-                <button onClick={() => copy(String(epoch))} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+                <input readOnly value={epoch} className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text" />
+                <button onClick={() => copy(String(epoch))} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
               </div>
             </label>
             <label className="space-y-1">
-              <span className="text-sm text-gray-600 dark:text-gray-400">Iteration (count)</span>
+              <span className="text-sm text-dim ">Iteration (count)</span>
               <div className="flex items-center gap-2">
-                <input readOnly value={counter} className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white" />
-                <button onClick={() => copy(String(counter))} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+                <input readOnly value={counter} className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text" />
+                <button onClick={() => copy(String(counter))} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
               </div>
             </label>
           </div>
 
           <label className="space-y-1 block md:col-span-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">Padded hex</span>
+            <span className="text-sm text-dim ">Padded hex</span>
             <div className="flex items-center gap-2">
-              <input readOnly value={counterToPaddedHex(counter)} className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white" />
-              <button onClick={() => copy(counterToPaddedHex(counter))} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+              <input readOnly value={counterToPaddedHex(counter)} className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text" />
+              <button onClick={() => copy(counterToPaddedHex(counter))} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
             </div>
           </label>
         </section>
       </div>
 
-      <details className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800">
-        <summary className="cursor-pointer text-sm text-gray-700 dark:text-gray-200">Advanced: compute OTP for a given counter (HOTP)</summary>
+      <details className="p-5 rounded-2xl bg-surface-2 border border-hairline ">
+        <summary className="cursor-pointer text-sm text-dim ">Advanced: compute OTP for a given counter (HOTP)</summary>
         <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-          <input id="hotp-hex" placeholder="Counter hex (16 chars)" className="h-10 px-3 rounded-xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+          <input id="hotp-hex" placeholder="Counter hex (16 chars)" className="h-10 px-3 rounded-xl border bg-surface border-hairline text-text" />
           <button
             className="btn-secondary px-4 py-2"
             onClick={async () => {

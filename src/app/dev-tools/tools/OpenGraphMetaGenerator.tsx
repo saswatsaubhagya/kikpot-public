@@ -67,22 +67,22 @@ export default function OpenGraphMetaGenerator() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">Generate open‑graph and socials HTML meta tags for your website.</p>
+      <p className="text-sm text-dim ">Generate open‑graph and socials HTML meta tags for your website.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-5">
-          <h3 className="font-medium text-gray-900 dark:text-gray-100">General information</h3>
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-5">
+          <h3 className="font-medium text-text ">General information</h3>
           <div className="space-y-4">
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Page type</div>
+              <div className="text-sm text-dim ">Page type</div>
               <div className="relative">
                 <select
                   value={type}
                   onChange={(e) => setType(e.target.value as PageType)}
-                  className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white"
+                  className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text"
                 >
                   {pageTypes.map((t) => (
-                    <option key={t} value={t} className="bg-gray-900 text-white">
+                    <option key={t} value={t} className="bg-surface-2 text-text">
                       {t[0].toUpperCase() + t.slice(1)}
                     </option>
                   ))}
@@ -91,73 +91,73 @@ export default function OpenGraphMetaGenerator() {
             </div>
 
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Title</div>
-              <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter the title of your website..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Title</div>
+              <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter the title of your website..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Description</div>
-              <input value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter the description of your website..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Description</div>
+              <input value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter the description of your website..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Page URL</div>
-              <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Enter the url of your website..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Page URL</div>
+              <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Enter the url of your website..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
 
-            <h3 className="font-medium text-gray-900 dark:text-gray-100 pt-2">Image</h3>
+            <h3 className="font-medium text-text pt-2">Image</h3>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Image url</div>
-              <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="The url of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Image url</div>
+              <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="The url of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Image alt</div>
-              <input value={imageAlt} onChange={(e) => setImageAlt(e.target.value)} placeholder="The alternative text of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Image alt</div>
+              <input value={imageAlt} onChange={(e) => setImageAlt(e.target.value)} placeholder="The alternative text of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <div className="text-sm text-gray-600 dark:text-gray-400">Width</div>
-                <input value={imageWidth} onChange={(e) => setImageWidth(e.target.value)} placeholder="Width in px of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+                <div className="text-sm text-dim ">Width</div>
+                <input value={imageWidth} onChange={(e) => setImageWidth(e.target.value)} placeholder="Width in px of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
               </div>
               <div className="space-y-2">
-                <div className="text-sm text-gray-600 dark:text-gray-400">Height</div>
-                <input value={imageHeight} onChange={(e) => setImageHeight(e.target.value)} placeholder="Height in px of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+                <div className="text-sm text-dim ">Height</div>
+                <input value={imageHeight} onChange={(e) => setImageHeight(e.target.value)} placeholder="Height in px of your website social image..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
               </div>
             </div>
 
-            <h3 className="font-medium text-gray-900 dark:text-gray-100 pt-2">Twitter</h3>
+            <h3 className="font-medium text-text pt-2">Twitter</h3>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Card type</div>
+              <div className="text-sm text-dim ">Card type</div>
               <select
                 value={twitterCard}
                 onChange={(e) => setTwitterCard(e.target.value)}
-                className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white"
+                className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text"
               >
                 {twitterCardTypes.map((t) => (
-                  <option key={t.id} value={t.id} className="bg-gray-900 text-white">
+                  <option key={t.id} value={t.id} className="bg-surface-2 text-text">
                     {t.label}
                   </option>
                 ))}
               </select>
             </div>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Site account</div>
-              <input value={twitterSite} onChange={(e) => setTwitterSite(e.target.value)} placeholder="The name of the Twitter account of the site (ex: @yourhandle)..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Site account</div>
+              <input value={twitterSite} onChange={(e) => setTwitterSite(e.target.value)} placeholder="The name of the Twitter account of the site (ex: @yourhandle)..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600 dark:text-gray-400">Creator acc.</div>
-              <input value={twitterCreator} onChange={(e) => setTwitterCreator(e.target.value)} placeholder="The name of the Twitter account of the creator (ex: @creator)..." className="w-full h-12 px-3 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/40 text-white" />
+              <div className="text-sm text-dim ">Creator acc.</div>
+              <input value={twitterCreator} onChange={(e) => setTwitterCreator(e.target.value)} placeholder="The name of the Twitter account of the creator (ex: @creator)..." className="w-full h-12 px-3 rounded-2xl border bg-surface border-hairline text-text" />
             </div>
           </div>
         </section>
 
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-gray-100">Your meta tags</h3>
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+          <h3 className="font-medium text-text ">Your meta tags</h3>
           <textarea
             value={meta}
             readOnly
-            className="w-full h-[28rem] p-3 border border-gray-200 rounded-2xl font-mono text-sm text-white bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40"
+            className="w-full h-[28rem] p-3 border border-hairline rounded-2xl font-mono text-sm text-text bg-surface "
           />
           <div className="flex gap-2">
-            <button onClick={() => copy(meta)} className="px-4 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy</button>
+            <button onClick={() => copy(meta)} className="px-4 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy</button>
           </div>
         </section>
       </div>

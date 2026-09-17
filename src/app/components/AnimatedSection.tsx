@@ -44,7 +44,6 @@ export default function AnimatedSection(props: AnimatedSectionProps) {
       transition={mergedTransition as NonNullable<ComponentProps<typeof motion.div>["transition"]>}
       whileInView={whileInView}
       viewport={viewport}
-      whileHover={whileInView ? undefined : { scale: 1.02, y: -5 }}
       className={`${className}`}
     >
       {children}

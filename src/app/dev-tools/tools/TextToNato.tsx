@@ -78,24 +78,24 @@ export default function TextToNato() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         Transform text into the NATO phonetic alphabet for oral transmission.
       </p>
 
-      <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-        <div className="text-sm text-gray-300">Your text to convert to NATO phonetic alphabet</div>
+      <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+        <div className="text-sm text-dim">Your text to convert to NATO phonetic alphabet</div>
         <div className="relative">
           <input
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full h-11 px-3 pr-10 rounded-xl border border-gray-700/40 bg-gray-800 text-white"
+            className="w-full h-11 px-3 pr-10 rounded-xl border border-hairline bg-surface-2 text-text"
             placeholder="Type here…"
           />
           {text && (
             <button
               onClick={() => setText("")}
               aria-label="clear"
-              className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7 rounded-md border border-gray-700/40 text-white hover:bg-gray-700"
+              className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7 rounded-md border border-hairline text-text hover:bg-surface-2"
             >
               ×
             </button>
@@ -103,13 +103,13 @@ export default function TextToNato() {
         </div>
       </section>
 
-      <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-        <div className="text-sm text-gray-300">Your text in NATO phonetic alphabet</div>
-        <div className="w-full min-h-14 p-3 rounded-xl border border-gray-700/40 bg-gray-800 text-white">
+      <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+        <div className="text-sm text-dim">Your text in NATO phonetic alphabet</div>
+        <div className="w-full min-h-14 p-3 rounded-xl border border-hairline bg-surface-2 text-text">
           {nato || ""}
         </div>
         <div>
-          <button onClick={copy} className="px-4 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">
+          <button onClick={copy} className="px-4 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">
             Copy NATO string
           </button>
         </div>

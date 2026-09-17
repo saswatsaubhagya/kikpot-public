@@ -71,118 +71,116 @@ export default function SvgPlaceholderGenerator() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">SVG placeholder generator</div>
-      <p className="text-sm text-gray-400">Generate svg images to use as a placeholder in your applications.</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="p-6 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-5">
+        <section className="p-6 rounded-2xl bg-surface border border-hairline space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-sm text-gray-300">Width (in px)</label>
+              <label className="text-sm text-dim">Width (in px)</label>
               <div className="flex flex-wrap items-center gap-2">
                 <input
                   type="number"
                   value={width}
                   onChange={(e) => setWidth(Number(e.target.value))}
-                  className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                  className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
                 />
-                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200" onClick={() => setWidth((w) => w + 10)}>+</button>
-                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200" onClick={() => setWidth((w) => Math.max(1, w - 10))}>−</button>
+                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text" onClick={() => setWidth((w) => w + 10)}>+</button>
+                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text" onClick={() => setWidth((w) => Math.max(1, w - 10))}>−</button>
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm text-gray-300">Height (in px)</label>
+              <label className="text-sm text-dim">Height (in px)</label>
               <div className="flex flex-wrap items-center gap-2">
                 <input
                   type="number"
                   value={height}
                   onChange={(e) => setHeight(Number(e.target.value))}
-                  className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                  className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
                 />
-                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200" onClick={() => setHeight((h) => h + 10)}>+</button>
-                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200" onClick={() => setHeight((h) => Math.max(1, h - 10))}>−</button>
+                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text" onClick={() => setHeight((h) => h + 10)}>+</button>
+                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text" onClick={() => setHeight((h) => Math.max(1, h - 10))}>−</button>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-sm text-gray-300">Font size</label>
+              <label className="text-sm text-dim">Font size</label>
               <div className="flex flex-wrap items-center gap-2">
                 <input
                   type="number"
                   value={fontSize}
                   onChange={(e) => setFontSize(Number(e.target.value))}
-                  className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                  className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
                 />
-                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200" onClick={() => setFontSize((s) => s + 2)}>+</button>
-                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200" onClick={() => setFontSize((s) => Math.max(1, s - 2))}>−</button>
+                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text" onClick={() => setFontSize((s) => s + 2)}>+</button>
+                <button type="button" className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text" onClick={() => setFontSize((s) => Math.max(1, s - 2))}>−</button>
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm text-gray-300">Custom text</label>
+              <label className="text-sm text-dim">Custom text</label>
               <input
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder={`Default is ${width}x${height}`}
-                className="min-w-0 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                className="min-w-0 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-sm text-gray-300">Background</label>
+              <label className="text-sm text-dim">Background</label>
               <div className="flex items-center gap-3">
                 <input
                   type="color"
                   value={normalizeHexColor(bg, '#cccccc')}
                   onChange={(e) => setBg(e.target.value)}
-                  className="h-10 w-12 p-0 rounded-xl border border-gray-700 bg-transparent"
+                  className="h-10 w-12 p-0 rounded-xl border border-hairline bg-transparent"
                 />
                 <input
                   value={bg}
                   onChange={(e) => setBg(e.target.value)}
-                  className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-white text-black font-mono text-sm"
+                  className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-surface text-text font-mono text-sm"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-sm text-gray-300">Text color</label>
+              <label className="text-sm text-dim">Text color</label>
               <div className="flex items-center gap-3">
                 <input
                   type="color"
                   value={normalizeHexColor(fg, '#333333')}
                   onChange={(e) => setFg(e.target.value)}
-                  className="h-10 w-12 p-0 rounded-xl border border-gray-700 bg-transparent"
+                  className="h-10 w-12 p-0 rounded-xl border border-hairline bg-transparent"
                 />
                 <input
                   value={fg}
                   onChange={(e) => setFg(e.target.value)}
-                  className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-black text-white font-mono text-sm"
+                  className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-surface-2 text-text font-mono text-sm"
                 />
               </div>
             </div>
           </div>
 
-          <label className="flex items-center gap-2 text-sm text-gray-300">
+          <label className="flex items-center gap-2 text-sm text-dim">
             <input type="checkbox" checked={exact} onChange={(e) => setExact(e.target.checked)} />
             Use exact size
           </label>
 
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">SVG HTML element</label>
-            <textarea value={svgString} readOnly className="w-full h-44 p-3 border border-gray-700 rounded-2xl font-mono text-sm text-white bg-transparent" />
+            <label className="text-sm text-dim">SVG HTML element</label>
+            <textarea value={svgString} readOnly className="w-full h-44 p-3 border border-hairline rounded-2xl font-mono text-sm text-text bg-transparent" />
             <div className="flex gap-3">
-              <button onClick={() => copy(svgString)} className="px-4 h-10 rounded-xl border border-gray-700 hover:bg-gray-800 text-white">Copy svg</button>
-              <button onClick={() => copy(dataUrl)} className="px-4 h-10 rounded-xl border border-gray-700 hover:bg-gray-800 text-white">Copy base64</button>
+              <button onClick={() => copy(svgString)} className="px-4 h-10 rounded-xl border border-hairline hover:bg-surface-2 text-text">Copy svg</button>
+              <button onClick={() => copy(dataUrl)} className="px-4 h-10 rounded-xl border border-hairline hover:bg-surface-2 text-text">Copy base64</button>
               <button onClick={download} className="btn-primary px-5 py-2.5">Download svg</button>
             </div>
           </div>
         </section>
 
-        <section className="p-6 rounded-2xl bg-gray-900/40 border border-gray-800 overflow-hidden">
-          <div className="w-full aspect-[16/9] bg-gray-200/20 flex items-center justify-center overflow-hidden rounded-xl">
+        <section className="p-6 rounded-2xl bg-surface border border-hairline overflow-hidden">
+          <div className="w-full aspect-[16/9] bg-surface-2 flex items-center justify-center overflow-hidden rounded-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox={`0 0 ${Math.max(1, Math.floor(width))} ${Math.max(1, Math.floor(height))}`}

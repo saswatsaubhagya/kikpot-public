@@ -37,26 +37,26 @@ function Section({
   onCopy: () => void;
 }) {
   return (
-    <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-      <h3 className="font-medium text-gray-900 dark:text-gray-100">{title}</h3>
+    <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+      <h3 className="font-medium text-text ">{title}</h3>
       <div>
-        <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Enter {inputPlaceholder}</div>
+        <div className="text-sm text-dim mb-1">Enter {inputPlaceholder}</div>
         <textarea
           value={inputValue}
           onChange={(e) => onInputChange(e.target.value)}
-          className="w-full h-28 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-white bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40"
+          className="w-full h-28 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface "
         />
       </div>
       <div>
-        <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">{title.includes("to text") ? "Text from your binary" : "Binary from your text"}</div>
+        <div className="text-sm text-dim mb-1">{title.includes("to text") ? "Text from your binary" : "Binary from your text"}</div>
         <textarea
           value={outputValue}
           readOnly
-          className="w-full h-24 p-3 border border-gray-200 rounded-2xl font-mono text-sm text-white bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40"
+          className="w-full h-24 p-3 border border-hairline rounded-2xl font-mono text-sm text-text bg-surface "
         />
       </div>
       <div>
-        <button onClick={onCopy} className="px-4 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">{copyLabel}</button>
+        <button onClick={onCopy} className="px-4 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">{copyLabel}</button>
       </div>
     </section>
   );
@@ -78,7 +78,7 @@ export default function TextToAsciiBinary() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         Convert text to its ASCII binary representation and vice-versa.
       </p>
 

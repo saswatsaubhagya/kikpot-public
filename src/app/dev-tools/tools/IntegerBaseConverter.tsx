@@ -62,13 +62,13 @@ function clampBase(n: number): number {
 function OutputRow({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
     <div className="flex items-center gap-4">
-      <div className="w-36 shrink-0 text-sm text-gray-600 dark:text-gray-300">{label}</div>
+      <div className="w-36 shrink-0 text-sm text-dim ">{label}</div>
       <input
-        className="flex-1 h-10 px-3 rounded-xl border border-gray-200 bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40 text-white font-mono text-sm"
+        className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text font-mono text-sm"
         value={value}
         readOnly
       />
-      <button onClick={onCopy} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">
+      <button onClick={onCopy} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">
         ⧉
       </button>
     </div>
@@ -100,22 +100,22 @@ export default function IntegerBaseConverter() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         Convert a number between different bases (decimal, hexadecimal, binary, octal, base64, ...)
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div className="md:col-span-2">
-          <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Input number</label>
+          <label className="block text-xs text-dim mb-1">Input number</label>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="w-full h-10 px-3 rounded-xl border border-gray-200 bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40 text-white font-mono text-sm"
+            className="w-full h-10 px-3 rounded-xl border border-hairline bg-surface text-text font-mono text-sm"
             placeholder="Enter a number"
           />
         </div>
         <div>
-          <label className="block text-xs text-gray-600 dark:text-gray-400 mb-1">Input base</label>
+          <label className="block text-xs text-dim mb-1">Input base</label>
           <div className="flex items-center gap-2">
             <input
               type="number"
@@ -123,18 +123,18 @@ export default function IntegerBaseConverter() {
               max={64}
               value={inputBase}
               onChange={(e) => setInputBase(clampBase(Number(e.target.value)))}
-              className="w-full h-10 px-3 rounded-xl border border-gray-200 bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40 text-white font-mono text-sm"
+              className="w-full h-10 px-3 rounded-xl border border-hairline bg-surface text-text font-mono text-sm"
             />
             <button
               onClick={() => setInputBase((b) => clampBase(b - 1))}
-              className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white"
+              className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text"
               aria-label="decrease base"
             >
               −
             </button>
             <button
               onClick={() => setInputBase((b) => clampBase(b + 1))}
-              className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white"
+              className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text"
               aria-label="increase base"
             >
               +
@@ -143,27 +143,27 @@ export default function IntegerBaseConverter() {
         </div>
       </div>
 
-      <div className="pt-2 space-y-3 border-t border-gray-200 dark:border-gray-800">
+      <div className="pt-2 space-y-3 border-t border-hairline ">
         <OutputRow label="Binary (2)" value={invalid ? "Invalid" : toBase(2)} onCopy={() => handleCopy(invalid ? "" : toBase(2))} />
         <OutputRow label="Octal (8)" value={invalid ? "Invalid" : toBase(8)} onCopy={() => handleCopy(invalid ? "" : toBase(8))} />
         <OutputRow label="Decimal (10)" value={invalid ? "Invalid" : toBase(10)} onCopy={() => handleCopy(invalid ? "" : toBase(10))} />
         <OutputRow label="Hexadecimal (16)" value={invalid ? "Invalid" : toBase(16)} onCopy={() => handleCopy(invalid ? "" : toBase(16))} />
         <OutputRow label="Base64 (64)" value={invalid ? "Invalid" : toBase(64)} onCopy={() => handleCopy(invalid ? "" : toBase(64))} />
         <div className="flex items-center gap-4">
-          <div className="w-36 shrink-0 text-sm text-gray-600 dark:text-gray-300">Custom:</div>
+          <div className="w-36 shrink-0 text-sm text-dim ">Custom:</div>
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setCustomBase((b) => clampBase(b - 1))}
-                className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white"
+                className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text"
                 aria-label="decrease custom base"
               >
                 −
               </button>
-              <span className="w-16 text-center text-white font-mono">{invalid ? "" : toBase(customBase)}</span>
+              <span className="w-16 text-center text-text font-mono">{invalid ? "" : toBase(customBase)}</span>
               <button
                 onClick={() => setCustomBase((b) => clampBase(b + 1))}
-                className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white"
+                className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text"
                 aria-label="increase custom base"
               >
                 +
@@ -175,9 +175,9 @@ export default function IntegerBaseConverter() {
               max={64}
               value={customBase}
               onChange={(e) => setCustomBase(clampBase(Number(e.target.value)))}
-              className="w-20 h-10 px-3 rounded-xl border border-gray-200 bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40 text-white font-mono text-sm"
+              className="w-20 h-10 px-3 rounded-xl border border-hairline bg-surface text-text font-mono text-sm"
             />
-            <button onClick={() => handleCopy(invalid ? "" : toBase(customBase))} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">
+            <button onClick={() => handleCopy(invalid ? "" : toBase(customBase))} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">
               ⧉
             </button>
           </div>

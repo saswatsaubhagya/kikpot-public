@@ -71,21 +71,21 @@ export default function EncryptDecrypt() {
 
   return (
     <div className="space-y-6">
-      <p className="text-gray-600 dark:text-gray-300 text-sm">
+      <p className="text-dim text-sm">
         Encrypt clear text and decrypt ciphertext using crypto algorithms like AES, TripleDES, Rabbit or RC4.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Encrypt */}
         <div className="card p-5">
-          <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Encrypt</h3>
+          <h3 className="text-lg font-semibold mb-4 text-text ">Encrypt</h3>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Your text:</label>
+              <label className="block text-sm font-medium text-dim mb-2">Your text:</label>
               <textarea
                 value={plain}
                 onChange={(e) => setPlain(e.target.value)}
-                className="w-full h-28 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-gray-900 bg-white/60 dark:bg-gray-900/40 dark:text-gray-100 dark:border-gray-700/50"
+                className="w-full h-28 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface "
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -93,12 +93,12 @@ export default function EncryptDecrypt() {
                 value={encKey}
                 onChange={(e) => setEncKey(e.target.value)}
                 placeholder="my secret key"
-                className="h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+                className="h-10 px-3 rounded-2xl border bg-surface border-hairline text-text "
               />
               <select
                 value={encAlgo}
                 onChange={(e) => setEncAlgo(e.target.value as Algorithm)}
-                className="h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+                className="h-10 px-3 rounded-2xl border bg-surface border-hairline text-text "
               >
                 <option value="AES">AES</option>
                 <option value="TripleDES">TripleDES</option>
@@ -110,11 +110,11 @@ export default function EncryptDecrypt() {
               <button onClick={handleEncrypt} className="btn-primary px-5 py-2.5">Encrypt</button>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Your text encrypted:</label>
+              <label className="block text-sm font-medium text-dim mb-2">Your text encrypted:</label>
               <textarea
                 readOnly
                 value={cipher}
-                className="w-full h-24 p-3 border border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-900/40 dark:border-gray-700/50 font-mono text-sm text-gray-900 dark:text-gray-100 break-all"
+                className="w-full h-24 p-3 border border-hairline rounded-2xl bg-surface-2 font-mono text-sm text-text break-all"
               />
             </div>
           </div>
@@ -122,14 +122,14 @@ export default function EncryptDecrypt() {
 
         {/* Decrypt */}
         <div className="card p-5">
-          <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">Decrypt</h3>
+          <h3 className="text-lg font-semibold mb-4 text-text ">Decrypt</h3>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Your encrypted text:</label>
+              <label className="block text-sm font-medium text-dim mb-2">Your encrypted text:</label>
               <textarea
                 value={decInput}
                 onChange={(e) => setDecInput(e.target.value)}
-                className="w-full h-28 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-gray-900 bg-white/60 dark:bg-gray-900/40 dark:text-gray-100 dark:border-gray-700/50"
+                className="w-full h-28 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface "
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -137,12 +137,12 @@ export default function EncryptDecrypt() {
                 value={decKey}
                 onChange={(e) => setDecKey(e.target.value)}
                 placeholder="my secret key"
-                className="h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+                className="h-10 px-3 rounded-2xl border bg-surface border-hairline text-text "
               />
               <select
                 value={decAlgo}
                 onChange={(e) => setDecAlgo(e.target.value as Algorithm)}
-                className="h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+                className="h-10 px-3 rounded-2xl border bg-surface border-hairline text-text "
               >
                 <option value="AES">AES</option>
                 <option value="TripleDES">TripleDES</option>
@@ -154,11 +154,11 @@ export default function EncryptDecrypt() {
               <button onClick={handleDecrypt} className="btn-primary px-5 py-2.5">Decrypt</button>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Your decrypted text:</label>
+              <label className="block text-sm font-medium text-dim mb-2">Your decrypted text:</label>
               <textarea
                 readOnly
                 value={decrypted}
-                className="w-full h-24 p-3 border border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-900/40 dark:border-gray-700/50 font-mono text-sm text-gray-900 dark:text-gray-100"
+                className="w-full h-24 p-3 border border-hairline rounded-2xl bg-surface-2 font-mono text-sm text-text "
               />
             </div>
           </div>

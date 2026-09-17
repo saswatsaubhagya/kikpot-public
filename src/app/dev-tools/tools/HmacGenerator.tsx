@@ -40,32 +40,32 @@ export default function HmacGenerator() {
   return (
     <div className="space-y-5">
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Plain text to compute the hash</label>
+        <label className="block text-sm font-medium text-dim mb-2">Plain text to compute the hash</label>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Your string to sign..."
-          className="w-full h-28 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-gray-900 bg-white/60 dark:bg-gray-900/40 dark:text-gray-100 dark:border-gray-700/50"
+          className="w-full h-28 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface "
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Secret key</label>
+        <label className="block text-sm font-medium text-dim mb-2">Secret key</label>
         <input
           value={secret}
           onChange={(e) => setSecret(e.target.value)}
           placeholder="Enter secret..."
-          className="w-full h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 backdrop-blur-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 dark:bg-gray-900/40 dark:border-gray-700/50 dark:text-gray-100"
+          className="w-full h-10 px-3 rounded-2xl border bg-surface border-hairline backdrop-blur-xl focus:ring-2 focus:ring-brand/40 focus:border-brand "
         />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Hashing function</label>
+          <label className="block text-sm font-medium text-dim ">Hashing function</label>
           <select
             value={algo}
             onChange={(e) => setAlgo(e.target.value as WebCryptoAlgo)}
-            className="h-10 px-3 rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+            className="h-10 px-3 rounded-xl border bg-surface border-hairline text-text "
           >
             <option value="SHA-1">SHA1</option>
             <option value="SHA-256">SHA256</option>
@@ -74,11 +74,11 @@ export default function HmacGenerator() {
           </select>
         </div>
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Output encoding</label>
+          <label className="block text-sm font-medium text-dim ">Output encoding</label>
           <select
             value={encoding}
             onChange={(e) => setEncoding(e.target.value as "hex" | "base64")}
-            className="h-10 px-3 rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+            className="h-10 px-3 rounded-xl border bg-surface border-hairline text-text "
           >
             <option value="hex">Hexadecimal (base 16)</option>
             <option value="base64">Base64</option>
@@ -87,13 +87,13 @@ export default function HmacGenerator() {
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">HMAC of your text</label>
+        <label className="block text-sm font-medium text-dim ">HMAC of your text</label>
         <div className="flex items-center gap-3">
           <input
             readOnly
             value={hmac}
             placeholder=""
-            className="flex-1 h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 backdrop-blur-xl dark:bg-gray-900/40 dark:border-gray-700/50 dark:text-gray-100 font-mono text-sm"
+            className="flex-1 h-10 px-3 rounded-2xl border bg-surface border-hairline backdrop-blur-xl font-mono text-sm"
           />
           <button onClick={copy} className="btn-secondary px-4 py-2">{copied ? "Copied" : "Copy HMAC"}</button>
         </div>

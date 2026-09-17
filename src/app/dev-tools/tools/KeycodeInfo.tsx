@@ -69,14 +69,14 @@ export default function KeycodeInfo() {
 
   const Row = ({ label, value }: { label: string; value: string }) => (
     <div className="grid grid-cols-4 items-center gap-3">
-      <div className="text-sm text-gray-400 dark:text-gray-400">{label} :</div>
+      <div className="text-sm text-dim ">{label} :</div>
       <div className="col-span-3 flex items-center gap-2">
         <input
           readOnly
           value={value}
-          className="flex-1 h-10 px-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-gray-900/40 text-white"
+          className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface text-text"
         />
-        <button onClick={() => copy(value)} className="px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">
+        <button onClick={() => copy(value)} className="px-3 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">
           Copy
         </button>
       </div>
@@ -85,11 +85,11 @@ export default function KeycodeInfo() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">Find the javascript keycode, code, location and modifiers of any pressed key.</p>
+      <p className="text-sm text-dim ">Find the javascript keycode, code, location and modifiers of any pressed key.</p>
 
-      <section className="p-8 rounded-2xl bg-gray-900/40 border border-gray-800 text-center">
-        <div className="text-3xl md:text-4xl font-semibold text-white">{bigLabel}</div>
-        <div className="mt-2 text-sm text-gray-400">Press the key on your keyboard you want to get info about this key</div>
+      <section className="p-8 rounded-2xl bg-surface border border-hairline text-center">
+        <div className="text-3xl md:text-4xl font-semibold text-text">{bigLabel}</div>
+        <div className="mt-2 text-sm text-dim">Press the key on your keyboard you want to get info about this key</div>
       </section>
 
       <div className="space-y-3">

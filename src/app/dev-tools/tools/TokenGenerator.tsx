@@ -67,26 +67,26 @@ export default function TokenGenerator() {
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-          <span className="text-sm text-gray-700 dark:text-gray-200">Uppercase</span>
+        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+          <span className="text-sm text-dim ">Uppercase</span>
           <input type="checkbox" checked={useUpper} onChange={(e) => setUseUpper(e.target.checked)} />
         </label>
-        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-          <span className="text-sm text-gray-700 dark:text-gray-200">Lowercase</span>
+        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+          <span className="text-sm text-dim ">Lowercase</span>
           <input type="checkbox" checked={useLower} onChange={(e) => setUseLower(e.target.checked)} />
         </label>
-        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-          <span className="text-sm text-gray-700 dark:text-gray-200">Numbers</span>
+        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+          <span className="text-sm text-dim ">Numbers</span>
           <input type="checkbox" checked={useNumbers} onChange={(e) => setUseNumbers(e.target.checked)} />
         </label>
-        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-          <span className="text-sm text-gray-700 dark:text-gray-200">Symbols</span>
+        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+          <span className="text-sm text-dim ">Symbols</span>
           <input type="checkbox" checked={useSymbols} onChange={(e) => setUseSymbols(e.target.checked)} />
         </label>
-        <div className="col-span-2 md:col-span-5 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
+        <div className="col-span-2 md:col-span-5 px-3 py-2 rounded-xl border bg-surface border-hairline ">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-700 dark:text-gray-200">Length</span>
-            <span className="text-xs text-gray-600 dark:text-gray-300 font-mono">{length}</span>
+            <span className="text-sm text-dim ">Length</span>
+            <span className="text-xs text-dim font-mono">{length}</span>
           </div>
           <input
             type="range"
@@ -104,7 +104,7 @@ export default function TokenGenerator() {
         <textarea
           readOnly
           value={token}
-          className="w-full h-32 p-3 border border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-900/40 dark:border-gray-700/50 font-mono text-sm select-all text-gray-900 dark:text-gray-100"
+          className="w-full h-32 p-3 border border-hairline rounded-2xl bg-surface-2 font-mono text-sm select-all text-text "
         />
       </div>
 

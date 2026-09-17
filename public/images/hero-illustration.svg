@@ -7,35 +7,35 @@
   <!-- Main Illustration -->
   <g transform="translate(200, 150)">
     <!-- Computer Screen -->
-    <rect x="100" y="50" width="300" height="200" rx="10" fill="#2D3748"/>
-    <rect x="110" y="60" width="280" height="180" rx="5" fill="#4A5568"/>
+    <rect x="100" y="50" width="300" height="200" rx="10" fill="#1E1B33"/>
+    <rect x="110" y="60" width="280" height="180" rx="5" fill="#615C7E"/>
     
     <!-- Code Elements -->
-    <rect x="130" y="80" width="100" height="10" rx="2" fill="#63B3ED"/>
-    <rect x="130" y="100" width="80" height="10" rx="2" fill="#63B3ED"/>
-    <rect x="130" y="120" width="120" height="10" rx="2" fill="#63B3ED"/>
-    <rect x="130" y="140" width="90" height="10" rx="2" fill="#63B3ED"/>
-    <rect x="130" y="160" width="110" height="10" rx="2" fill="#63B3ED"/>
+    <rect x="130" y="80" width="100" height="10" rx="2" fill="#C4B5FD"/>
+    <rect x="130" y="100" width="80" height="10" rx="2" fill="#C4B5FD"/>
+    <rect x="130" y="120" width="120" height="10" rx="2" fill="#C4B5FD"/>
+    <rect x="130" y="140" width="90" height="10" rx="2" fill="#C4B5FD"/>
+    <rect x="130" y="160" width="110" height="10" rx="2" fill="#C4B5FD"/>
     
     <!-- Computer Base -->
-    <rect x="150" y="250" width="200" height="20" rx="5" fill="#2D3748"/>
-    <rect x="200" y="270" width="100" height="10" rx="2" fill="#2D3748"/>
+    <rect x="150" y="250" width="200" height="20" rx="5" fill="#1E1B33"/>
+    <rect x="200" y="270" width="100" height="10" rx="2" fill="#1E1B33"/>
     
     <!-- Decorative Elements -->
-    <circle cx="400" cy="100" r="30" fill="#4299E1" opacity="0.5"/>
-    <circle cx="100" cy="200" r="20" fill="#4299E1" opacity="0.5"/>
-    <circle cx="500" cy="250" r="25" fill="#4299E1" opacity="0.5"/>
+    <circle cx="400" cy="100" r="30" fill="#7C3AED" opacity="0.5"/>
+    <circle cx="100" cy="200" r="20" fill="#7C3AED" opacity="0.5"/>
+    <circle cx="500" cy="250" r="25" fill="#7C3AED" opacity="0.5"/>
   </g>
   
   <!-- Gradients -->
   <defs>
     <radialGradient id="gradient1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 300) rotate(90) scale(250)">
-      <stop offset="0%" stop-color="#4299E1"/>
-      <stop offset="100%" stop-color="#2B6CB0"/>
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#4C1D95"/>
     </radialGradient>
     <radialGradient id="gradient2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(400 300) rotate(90) scale(200)">
-      <stop offset="0%" stop-color="#63B3ED"/>
-      <stop offset="100%" stop-color="#4299E1"/>
+      <stop offset="0%" stop-color="#C4B5FD"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
     </radialGradient>
   </defs>
 </svg> 

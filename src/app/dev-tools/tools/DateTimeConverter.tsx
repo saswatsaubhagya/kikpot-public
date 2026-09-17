@@ -147,12 +147,12 @@ export default function DateTimeConverter() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Put your date string here..."
-          className="w-full h-12 px-4 rounded-2xl border bg-white/70 border-gray-200 backdrop-blur-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 dark:bg-gray-900/40 dark:border-gray-700/50 dark:text-gray-100"
+          className="w-full h-12 px-4 rounded-2xl border bg-surface border-hairline backdrop-blur-xl focus:ring-2 focus:ring-brand/40 focus:border-brand "
         />
         <select
           value={format}
           onChange={(e) => setFormat(e.target.value as InputFormat)}
-          className="h-12 px-3 rounded-2xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+          className="h-12 px-3 rounded-2xl border bg-surface border-hairline text-text "
         >
           <option value="js-locale">JS locale date string</option>
           <option value="iso-8601">ISO 8601</option>
@@ -170,11 +170,11 @@ export default function DateTimeConverter() {
       <div className="space-y-3">
         {rows.map((row) => (
           <div key={row.label} className="grid grid-cols-1 sm:grid-cols-[200px_1fr_auto] gap-2 items-center">
-            <div className="text-sm text-gray-500 dark:text-gray-400">{row.label}</div>
+            <div className="text-sm text-dim ">{row.label}</div>
             <input
               readOnly
               value={row.value}
-              className="h-10 px-3 rounded-2xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 dark:text-gray-100 font-mono text-sm"
+              className="h-10 px-3 rounded-2xl border bg-surface border-hairline font-mono text-sm"
             />
             <button onClick={() => copy(row.value, row.label)} className="btn-secondary px-3 py-2 text-sm">
               {copiedKey === row.label ? "Copied" : "Copy"}

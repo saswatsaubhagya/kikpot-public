@@ -22,7 +22,7 @@ export default function UrlEncoderDecoder() {
         <button
           onClick={() => setMode("encode")}
           className={`px-4 py-2 rounded-xl border transition-smooth ${
-            mode === "encode" ? "bg-purple-600 text-white border-purple-600" : "bg-white border-gray-200"
+            mode === "encode" ? "bg-brand text-text border-purple-600" : "bg-surface border-hairline"
           }`}
         >
           Encode
@@ -30,7 +30,7 @@ export default function UrlEncoderDecoder() {
         <button
           onClick={() => setMode("decode")}
           className={`px-4 py-2 rounded-xl border transition-smooth ${
-            mode === "decode" ? "bg-purple-600 text-white border-purple-600" : "bg-white border-gray-200"
+            mode === "decode" ? "bg-brand text-text border-purple-600" : "bg-surface border-hairline"
           }`}
         >
           Decode
@@ -39,7 +39,7 @@ export default function UrlEncoderDecoder() {
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="w-full h-40 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-gray-900 bg-white/60"
+        className="w-full h-40 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface"
         placeholder="Enter text..."
       />
       <div className="flex items-center gap-3">
@@ -47,7 +47,7 @@ export default function UrlEncoderDecoder() {
           Convert
         </button>
       </div>
-      {result && <pre className="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl overflow-x-auto font-mono text-sm text-gray-900">{result}</pre>}
+      {result && <pre className="w-full p-3 bg-surface-2 border border-hairline rounded-2xl overflow-x-auto font-mono text-sm text-text">{result}</pre>}
     </div>
   );
 }

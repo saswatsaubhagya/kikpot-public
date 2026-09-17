@@ -1,381 +1,427 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ---------------------------------------------------------------------------
+   Kikpot token layer.
+   Light is canonical; dark is a violet-ink counterpart.
+   No theme toggle exists in the app, so both follow prefers-color-scheme.
+--------------------------------------------------------------------------- */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
-  /* Modern color tokens */
-  --primary: 139 92 246;
-  --primary-foreground: 255 255 255;
-  --secondary: 59 130 246;
-  --secondary-foreground: 255 255 255;
-  --accent: 236 72 153;
-  --accent-foreground: 255 255 255;
-  --muted: 241 245 249;
-  --muted-foreground: 100 116 139;
-  --border: 226 232 240;
-  --input: 226 232 240;
-  --ring: 139 92 246;
-  
-  /* Modern shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --canvas: #f8f8fc;
+  --surface: #ffffff;
+  --surface-2: #f1f0fa;
+  --hairline: #e7e4f3;
+  --hairline-strong: #cbc6e2;
+  --text: #16151d;
+  --dim: #605c72;
+
+  /* The original brand: violet leading, blue as the second voice. */
+  --brand: #7c3aed;
+  --brand-deep: #2b1065;
+  --brand-soft: #c4b5fd;
+  --brand-ink: #f7f5ff;
+  --accent: #3b82f6;
+  --hero: linear-gradient(135deg, #2b1065 0%, #3b2a8c 55%, #1e3a8a 100%);
+
+  --cta: var(--brand);
+  --cta-ink: #ffffff;
+
+  /* Compatibility aliases: older pages still read these */
+  --background: var(--canvas);
+  --foreground: var(--text);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+
+  --shadow-soft: 0 1px 2px rgb(22 21 29 / 0.04), 0 8px 20px -12px rgb(22 21 29 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(22 21 29 / 0.05), 0 18px 40px -18px rgb(22 21 29 / 0.22);
+  --motion: 180ms cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --muted: 15 23 42;
-  --muted-foreground: 148 163 184;
-  --border: 51 65 85;
-  --input: 51 65 85;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #0b0a10;
+    --surface: #141320;
+    --surface-2: #1b1a2b;
+    --hairline: #272438;
+    --hairline-strong: #3b3752;
+    --text: #eceaf6;
+    --dim: #9d99b3;
+
+    --brand: #a78bfa;
+    --brand-deep: #15102a;
+    --brand-soft: #c4b5fd;
+    --brand-ink: #f7f5ff;
+    --accent: #60a5fa;
+    --hero: linear-gradient(135deg, #1a1035 0%, #241b52 55%, #16224d 100%);
+
+    --cta: var(--brand);
+    --cta-ink: #15102a;
+
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 24px -14px rgb(0 0 0 / 0.7);
+    --shadow-lift: 0 2px 6px rgb(0 0 0 / 0.45), 0 22px 48px -20px rgb(0 0 0 / 0.8);
+  }
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-text: var(--text);
+  --color-dim: var(--dim);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-ink: var(--brand-ink);
+  --color-accent: var(--accent);
+
+  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  --radius-card: 14px;
 }
 
 @layer base {
+  html {
+    background: var(--canvas);
+  }
+
   body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-    font-variation-settings: normal;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  /* Modern scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground) / 0.5);
+
+  ::selection {
+    background: var(--brand);
+    color: var(--brand-ink);
   }
 
-  /* Ensure text in form controls is white in dark mode and readable in light mode */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="number"],
-  input[type="search"],
-  input[type="url"],
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--canvas);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--hairline-strong);
+    border-radius: 999px;
+    border: 3px solid var(--canvas);
+  }
+
+  input,
   textarea,
   select {
-    @apply text-gray-900 dark:text-white;
+    color: var(--text);
+    caret-color: var(--brand);
   }
-  
-  /* Ensure all text inputs have appropriate text color based on context */
-  input:not(#n8n-chat input):not(#n8n-chat textarea),
-  textarea:not(#n8n-chat textarea):not(#n8n-chat input) {
-    color: white !important;
-  }
-  
-  /* Override for light mode to maintain readability */
-  @media (prefers-color-scheme: light) {
-    input:not(#n8n-chat input):not(#n8n-chat textarea),
-    textarea:not(#n8n-chat textarea):not(#n8n-chat input) {
-      color: #111827 !important; /* text-gray-900 */
-    }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--dim);
   }
 }
 
 @layer components {
-  /* Modern button styles */
+  .display {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.04;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+  }
+
   .btn-primary {
-    @apply bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-2xl font-semibold 
-           hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 
-           shadow-lg hover:shadow-xl hover:shadow-purple-500/25 border-0 focus:outline-none focus:ring-2 
-           focus:ring-purple-500/50 focus:ring-offset-2 active:scale-95;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.9375rem 1.75rem;
+    border-radius: 999px;
+    background: var(--cta);
+    color: var(--cta-ink);
+    border: 1px solid var(--cta);
+    box-shadow: var(--shadow-soft);
+    transition: background var(--motion), box-shadow var(--motion), transform var(--motion);
   }
-  
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--cta) 88%, black);
+    box-shadow: var(--shadow-lift);
+  }
+
   .btn-secondary {
-    @apply border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 
-           rounded-2xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 
-           transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500/50 
-           focus:ring-offset-2 active:scale-95;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.9375rem 1.75rem;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--hairline-strong);
+    transition: border-color var(--motion), color var(--motion), background var(--motion);
   }
-  
-  /* Modern card styles */
+  .btn-secondary:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+
+  /* On the violet hero, buttons invert. */
+  .on-brand .btn-primary {
+    background: var(--brand-ink);
+    color: var(--brand-deep);
+    border-color: var(--brand-ink);
+  }
+  .on-brand .btn-primary:hover {
+    background: #ffffff;
+  }
+  .on-brand .btn-secondary {
+    color: var(--brand-ink);
+    border-color: color-mix(in oklab, var(--brand-ink) 40%, transparent);
+  }
+  .on-brand .btn-secondary:hover {
+    border-color: var(--brand-ink);
+    background: color-mix(in oklab, var(--brand-ink) 10%, transparent);
+    color: var(--brand-ink);
+  }
+
   .card {
-    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/20 dark:border-gray-800/20 
-           rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow var(--motion), border-color var(--motion);
   }
-  
-  /* Glassmorphism effect */
+  .card:hover {
+    box-shadow: var(--shadow-lift);
+    border-color: var(--hairline-strong);
+  }
+
   .glass {
-    @apply bg-white/10 dark:bg-gray-900/10 backdrop-blur-xl border border-white/20 dark:border-gray-800/20;
+    background: color-mix(in oklab, var(--surface) 82%, transparent);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--hairline);
   }
-  
-  /* Modern gradient text */
+
+  /* Long-form article body. No typography plugin installed, so the
+     element styles live here rather than as utilities on every tag. */
+  .article {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--dim);
+  }
+  .article > * + * {
+    margin-top: 1.5rem;
+  }
+  .article h2 {
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-size: 2rem;
+    line-height: 1.15;
+    color: var(--text);
+    margin-top: 3.5rem;
+    scroll-margin-top: 6rem;
+  }
+  .article h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 2.5rem;
+  }
+  .article ul {
+    list-style: none;
+    padding: 0;
+  }
+  .article li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-top: 0.75rem;
+  }
+  .article li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.85em;
+    width: 0.75rem;
+    height: 1px;
+    background: var(--accent);
+  }
+  .article blockquote {
+    border-left: 2px solid var(--brand);
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    font-family: var(--font-instrument-serif), Georgia, serif;
+    font-size: 1.5rem;
+    line-height: 1.35;
+    color: var(--text);
+  }
+  .article a {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* The brand gradient, kept as one hook rather than sprayed on every surface. */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600;
+    background: linear-gradient(90deg, var(--brand), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
-  
-  /* Smooth transitions */
-  .transition-smooth {
-    @apply transition-all duration-300 ease-out;
-  }
-  
-  /* Modern focus styles */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2;
+
+  .hero-field {
+    background: var(--hero);
   }
 }
 
 @layer utilities {
-  /* Text balance for better typography */
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Modern animations */
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-  
-  /* Custom keyframes */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  @keyframes glow {
-    from { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
-    to { box-shadow: 0 0 30px rgba(139, 92, 246, 0.6); }
-  }
-  
-  /* Modern gradients */
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
-  }
-  
-  .bg-gradient-conic {
-    background: conic-gradient(from 0deg at 50% 50%, var(--tw-gradient-stops));
+
+  .measure {
+    max-width: 62ch;
   }
 }
 
-/* n8n Chat Widget Customization */
+/* One orchestrated moment: the hero arrives in sequence, once. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 640ms cubic-bezier(0.2, 0, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   n8n chat widget: re-themed onto the tokens above.
+   The widget renders outside our tree, so overrides stay !important.
+--------------------------------------------------------------------------- */
+
 :root {
-  /* Primary colors matching Kikpot's purple theme */
-  --chat--color-primary: #8B5CF6;
-  --chat--color-primary-shade-50: #7C3AED;
-  --chat--color-primary-shade-100: #6D28D9;
-  --chat--color-secondary: #3B82F6;
-  --chat--color-secondary-shade-50: #2563EB;
-  
-  /* Modern styling */
-  --chat--border-radius: 1rem;
-  --chat--transition-duration: 0.3s;
-  
-  /* Window size */
+  --chat--color-primary: #7c3aed;
+  --chat--color-primary-shade-50: #6d28d9;
+  --chat--color-primary-shade-100: #5b21b6;
+  --chat--color-secondary: #3b82f6;
+  --chat--color-secondary-shade-50: #2563eb;
+
+  --chat--border-radius: 14px;
+  --chat--transition-duration: 0.18s;
+
   --chat--window--width: 400px;
   --chat--window--height: 600px;
-  
-  /* Header styling */
-  --chat--header--background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
-  --chat--header--color: #ffffff;
-  
-  /* Message styling */
-  --chat--message--bot--background: #f8fafc;
-  --chat--message--bot--color: #1e293b;
-  --chat--message--user--background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
-  --chat--message--user--color: #ffffff;
-  
-  /* Toggle button styling */
-  --chat--toggle--background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
-  --chat--toggle--hover--background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
-  --chat--toggle--active--background: linear-gradient(135deg, #6D28D9 0%, #1D4ED8 100%);
-  --chat--toggle--size: 60px;
+
+  --chat--header--background: #7c3aed;
+  --chat--header--color: #f7f5ff;
+
+  --chat--message--bot--background: #f1f0fa;
+  --chat--message--bot--color: #16151d;
+  --chat--message--user--background: #7c3aed;
+  --chat--message--user--color: #f7f5ff;
+
+  --chat--toggle--background: #7c3aed;
+  --chat--toggle--hover--background: #6d28d9;
+  --chat--toggle--active--background: #5b21b6;
+  --chat--toggle--size: 58px;
 }
 
-/* Position n8n chat widget to avoid conflict with scroll-to-top button */
 #n8n-chat {
   z-index: 25 !important;
 }
 
-/* Desktop positioning */
 #n8n-chat .chat-toggle {
   bottom: 24px !important;
-  right: 100px !important;
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3) !important;
-  transition: all 0.3s ease !important;
-}
-
-#n8n-chat .chat-toggle:hover {
-  transform: scale(1.05) !important;
-  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4) !important;
+  right: 96px !important;
+  box-shadow: 0 12px 28px -14px rgb(43 16 101 / 0.45) !important;
 }
 
 #n8n-chat .chat-window {
-  bottom: 100px !important;
+  bottom: 96px !important;
   right: 24px !important;
-  border-radius: 1rem !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  backdrop-filter: blur(10px) !important;
+  border-radius: 14px !important;
+  border: 1px solid #e7e4f3 !important;
+  box-shadow: 0 28px 60px -28px rgb(22 21 29 / 0.32) !important;
 }
 
-/* Custom styling for chat input field */
-#n8n-chat textarea,
-#n8n-chat input[type="text"],
-#n8n-chat .chat-input textarea,
-#n8n-chat .chat-input input,
 #n8n-chat input,
-#n8n-chat textarea {
-  color: #000000 !important;
+#n8n-chat textarea,
+#n8n-chat [contenteditable],
+#n8n-chat div[role="textbox"] {
+  color: #16151d !important;
   background-color: #ffffff !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 0.5rem !important;
-  padding: 12px 16px !important;
+  border: 1px solid #e7e4f3 !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
   font-size: 14px !important;
-  transition: all 0.2s ease !important;
-  caret-color: #000000 !important;
+  caret-color: #7c3aed !important;
 }
 
-#n8n-chat textarea:focus,
-#n8n-chat input[type="text"]:focus,
-#n8n-chat .chat-input textarea:focus,
-#n8n-chat .chat-input input:focus,
 #n8n-chat input:focus,
 #n8n-chat textarea:focus {
-  color: #000000 !important;
-  background-color: #ffffff !important;
-  border-color: #8B5CF6 !important;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1) !important;
+  border-color: #7c3aed !important;
   outline: none !important;
-  caret-color: #000000 !important;
 }
 
-/* Ensure text remains black while typing */
-#n8n-chat textarea:not(:placeholder-shown),
-#n8n-chat input[type="text"]:not(:placeholder-shown),
-#n8n-chat .chat-input textarea:not(:placeholder-shown),
-#n8n-chat .chat-input input:not(:placeholder-shown),
-#n8n-chat input:not(:placeholder-shown),
-#n8n-chat textarea:not(:placeholder-shown) {
-  color: #000000 !important;
-}
-
-/* Additional selectors to override any inherited styles */
-#n8n-chat textarea *,
-#n8n-chat input[type="text"] *,
-#n8n-chat .chat-input textarea *,
-#n8n-chat .chat-input input *,
-#n8n-chat input *,
-#n8n-chat textarea * {
-  color: #000000 !important;
-}
-
-/* Force black text for all possible input variations */
-#n8n-chat [contenteditable],
-#n8n-chat [contenteditable] *,
-#n8n-chat .input,
-#n8n-chat .input *,
-#n8n-chat .textfield,
-#n8n-chat .textfield *,
-#n8n-chat .text-input,
-#n8n-chat .text-input *,
-#n8n-chat div[role="textbox"],
-#n8n-chat div[role="textbox"] * {
-  color: #000000 !important;
-  caret-color: #000000 !important;
-}
-
-#n8n-chat textarea::placeholder,
-#n8n-chat input[type="text"]::placeholder,
-#n8n-chat .chat-input textarea::placeholder,
-#n8n-chat .chat-input input::placeholder,
 #n8n-chat input::placeholder,
 #n8n-chat textarea::placeholder {
-  color: #6b7280 !important;
+  color: #605c72 !important;
   opacity: 1 !important;
 }
 
-/* Custom styling for user/sent messages - positioned on right */
-#n8n-chat .message-user,
-#n8n-chat .message.user,
-#n8n-chat .chat-message-user,
-#n8n-chat .chat-message.user,
-#n8n-chat [class*="user"],
-#n8n-chat [class*="sent"],
-#n8n-chat .message[data-type="user"],
-#n8n-chat .chat-message[data-type="user"],
-#n8n-chat .message.from-user,
-#n8n-chat .chat-message.from-user {
-  color: #ffffff !important;
-  background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%) !important;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-  align-self: flex-end !important;
-  text-align: right !important;
-  border-radius: 16px 16px 4px 16px !important;
-}
-
-/* Custom styling for bot messages - positioned on left */
-#n8n-chat .message-bot,
-#n8n-chat .message.bot,
-#n8n-chat .chat-message-bot,
-#n8n-chat .chat-message.bot,
-#n8n-chat [class*="bot"],
-#n8n-chat [class*="assistant"],
-#n8n-chat .message[data-type="bot"],
-#n8n-chat .chat-message[data-type="bot"],
-#n8n-chat .message.from-bot,
-#n8n-chat .chat-message.from-bot {
-  color: #1a1a1a !important;
-  background: #f8fafc !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-  align-self: flex-start !important;
-  text-align: left !important;
-  border-radius: 16px 16px 16px 4px !important;
-}
-
-/* Ensure all text content in messages has proper contrast */
-#n8n-chat .message-content,
-#n8n-chat .chat-message-content,
-#n8n-chat .message p,
-#n8n-chat .chat-message p {
-  color: inherit !important;
-}
-
-/* Override any default message styling */
 #n8n-chat .message,
 #n8n-chat .chat-message {
   font-size: 14px !important;
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
   margin: 8px 0 !important;
-  padding: 12px 16px !important;
-  border-radius: 12px !important;
+  padding: 11px 15px !important;
+  border-radius: 14px !important;
   max-width: 80% !important;
-  display: block !important;
-  position: relative !important;
 }
 
-/* Chat container should use flexbox for proper alignment */
 #n8n-chat .messages-container,
 #n8n-chat .chat-messages,
 #n8n-chat .messages,
@@ -385,50 +431,44 @@
   gap: 8px !important;
 }
 
-/* Ensure user messages are right-aligned in any message container */
-#n8n-chat .messages-container .message-user,
-#n8n-chat .chat-messages .message-user,
-#n8n-chat .messages .message-user,
-#n8n-chat .messages-container .message.user,
-#n8n-chat .chat-messages .message.user,
-#n8n-chat .messages .message.user,
-#n8n-chat .messages-container [class*="user"],
-#n8n-chat .chat-messages [class*="user"],
-#n8n-chat .messages [class*="user"] {
+#n8n-chat [class*="user"],
+#n8n-chat [class*="sent"] {
+  background: #7c3aed !important;
+  color: #f7f5ff !important;
   align-self: flex-end !important;
   margin-left: auto !important;
   margin-right: 0 !important;
 }
 
-/* Ensure bot messages are left-aligned in any message container */
-#n8n-chat .messages-container .message-bot,
-#n8n-chat .chat-messages .message-bot,
-#n8n-chat .messages .message-bot,
-#n8n-chat .messages-container .message.bot,
-#n8n-chat .chat-messages .message.bot,
-#n8n-chat .messages .message.bot,
-#n8n-chat .messages-container [class*="bot"],
-#n8n-chat .chat-messages [class*="bot"],
-#n8n-chat .messages [class*="bot"] {
+#n8n-chat [class*="bot"],
+#n8n-chat [class*="assistant"] {
+  background: #f1f0fa !important;
+  color: #16151d !important;
   align-self: flex-start !important;
   margin-left: 0 !important;
   margin-right: auto !important;
 }
 
-/* Mobile responsive positioning */
+#n8n-chat .message-content,
+#n8n-chat .chat-message-content,
+#n8n-chat .message p,
+#n8n-chat .chat-message p {
+  color: inherit !important;
+}
+
 @media (max-width: 768px) {
   #n8n-chat .chat-toggle {
-    bottom: 100px !important;
+    bottom: 96px !important;
     right: 24px !important;
   }
-  
+
   #n8n-chat .chat-window {
-    bottom: 170px !important;
+    bottom: 164px !important;
     right: 24px !important;
     left: 24px !important;
     width: calc(100% - 48px) !important;
   }
-  
+
   :root {
     --chat--window--width: calc(100vw - 48px);
     --chat--window--height: 500px;

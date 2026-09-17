@@ -162,38 +162,38 @@ export default function JsonDiff() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="p-5 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-3">
-          <h3 className="font-medium text-gray-100">Your first JSON</h3>
+        <section className="p-5 rounded-2xl bg-surface border border-hairline space-y-3">
+          <h3 className="font-medium text-text">Your first JSON</h3>
           <textarea
             value={leftRaw}
             onChange={(e) => setLeftRaw(e.target.value)}
             placeholder="Paste JSON..."
-            className="w-full h-[24rem] p-3 border border-gray-700 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-white bg-transparent"
+            className="w-full h-[24rem] p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-transparent"
           />
         </section>
-        <section className="p-5 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-3">
-          <h3 className="font-medium text-gray-100">Your JSON to compare</h3>
+        <section className="p-5 rounded-2xl bg-surface border border-hairline space-y-3">
+          <h3 className="font-medium text-text">Your JSON to compare</h3>
           <textarea
             value={rightRaw}
             onChange={(e) => setRightRaw(e.target.value)}
             placeholder="Paste JSON..."
-            className="w-full h-[24rem] p-3 border border-gray-700 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-white bg-transparent"
+            className="w-full h-[24rem] p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-transparent"
           />
         </section>
       </div>
 
       <div className="flex items-center gap-3">
-        <label className="flex items-center gap-2 text-sm text-gray-300">
+        <label className="flex items-center gap-2 text-sm text-dim">
           <input type="checkbox" checked={onlyDiffs} onChange={(e) => setOnlyDiffs(e.target.checked)} />
           Only show differences
         </label>
         {parseError && <span className="text-red-400 text-sm">{parseError}</span>}
       </div>
 
-      <section className="p-5 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-3">
-        <h3 className="font-medium text-gray-100">Diff</h3>
-        <div className="p-3 rounded-xl bg-black/20 border border-gray-800 overflow-x-auto text-white font-mono text-sm">
-          {diff ? <DiffView node={diff} onlyChanges={onlyDiffs} /> : <span className="text-gray-400">No diff to display</span>}
+      <section className="p-5 rounded-2xl bg-surface border border-hairline space-y-3">
+        <h3 className="font-medium text-text">Diff</h3>
+        <div className="p-3 rounded-xl bg-surface-2 border border-hairline overflow-x-auto text-text font-mono text-sm">
+          {diff ? <DiffView node={diff} onlyChanges={onlyDiffs} /> : <span className="text-dim">No diff to display</span>}
         </div>
       </section>
     </div>

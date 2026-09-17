@@ -76,21 +76,19 @@ export default function MathEvaluator() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">Math evaluator</div>
-      <p className="text-sm text-gray-400">A calculator for evaluating mathematical expressions. You can use functions like sqrt, cos, sin, abs, etc.</p>
 
       <div className="space-y-3">
         <textarea
           value={expr}
           onChange={(e) => setExpr(e.target.value)}
           placeholder="Your math expression (ex: 2*sqrt(6) )..."
-          className="w-full h-16 p-3 rounded-2xl border border-gray-700 bg-transparent text-white font-mono text-sm focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500"
+          className="w-full h-16 p-3 rounded-2xl border border-hairline bg-transparent text-text font-mono text-sm focus:ring-2 focus:ring-brand/40 focus:border-brand"
         />
         {error && <div className="p-3 bg-red-50/10 text-red-400 rounded-2xl border border-red-900/30">{error}</div>}
         {!!result && (
-          <div className="p-4 rounded-2xl bg-gray-900/40 border border-gray-800 flex items-center justify-between">
-            <div className="font-mono text-white text-sm">{result}</div>
-            <button onClick={() => copy(result)} className="px-3 h-9 rounded-xl border border-gray-700 text-gray-200 hover:bg-gray-800">Copy</button>
+          <div className="p-4 rounded-2xl bg-surface border border-hairline flex items-center justify-between">
+            <div className="font-mono text-text text-sm">{result}</div>
+            <button onClick={() => copy(result)} className="px-3 h-9 rounded-xl border border-hairline text-text hover:bg-surface-2">Copy</button>
           </div>
         )}
       </div>

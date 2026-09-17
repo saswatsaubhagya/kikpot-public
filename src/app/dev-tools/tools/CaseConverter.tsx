@@ -99,13 +99,13 @@ function toMockingCase(input: string): string {
 function Row({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
     <div className="flex items-center gap-4">
-      <div className="w-32 shrink-0 text-sm text-gray-300">{label}</div>
+      <div className="w-32 shrink-0 text-sm text-dim">{label}</div>
       <input
         value={value}
         readOnly
-        className="flex-1 h-10 px-3 rounded-xl border border-gray-700/40 bg-gray-800 text-white font-mono"
+        className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface-2 text-text font-mono"
       />
-      <button onClick={onCopy} className="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-gray-700/40 hover:bg-gray-700 transition-smooth text-white">⧉</button>
+      <button onClick={onCopy} className="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-hairline hover:bg-surface-2 transition-smooth text-text">⧉</button>
     </div>
   );
 }
@@ -141,22 +141,22 @@ export default function CaseConverter() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         Transform the case of a string and choose between different formats
       </p>
 
-      <div className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
+      <div className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
         <div className="flex items-center gap-4">
-          <div className="w-32 shrink-0 text-sm text-gray-300">Your string:</div>
+          <div className="w-32 shrink-0 text-sm text-dim">Your string:</div>
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 h-11 px-3 rounded-xl border border-gray-700/40 bg-gray-800 text-white"
+            className="flex-1 h-11 px-3 rounded-xl border border-hairline bg-surface-2 text-text"
             placeholder="Type…"
           />
         </div>
 
-        <div className="border-t border-gray-800 my-2" />
+        <div className="border-t border-hairline my-2" />
 
         <Row label="Lowercase:" value={values.lowercase} onCopy={() => copy(values.lowercase)} />
         <Row label="Uppercase:" value={values.uppercase} onCopy={() => copy(values.uppercase)} />

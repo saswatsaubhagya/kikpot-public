@@ -33,11 +33,11 @@ export default function JSONFormatter() {
   return (
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Input JSON</label>
+        <label className="block text-sm font-medium text-dim mb-2">Input JSON</label>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="w-full h-48 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-gray-900 bg-white/60"
+          className="w-full h-48 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface"
           placeholder="Paste your JSON here..."
         />
       </div>
@@ -62,8 +62,8 @@ export default function JSONFormatter() {
 
       {output && (
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Formatted Output</label>
-          <pre className="w-full p-3 bg-gray-50 border border-gray-200 rounded-2xl overflow-x-auto font-mono text-sm text-gray-900">
+          <label className="block text-sm font-medium text-dim mb-2">Formatted Output</label>
+          <pre className="w-full p-3 bg-surface-2 border border-hairline rounded-2xl overflow-x-auto font-mono text-sm text-text">
             {output}
           </pre>
         </div>

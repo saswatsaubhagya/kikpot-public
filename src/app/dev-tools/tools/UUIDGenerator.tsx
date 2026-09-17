@@ -47,7 +47,7 @@ export default function UUIDGenerator() {
 
   return (
     <div className="space-y-5">
-      <p className="text-gray-600 dark:text-gray-300 text-sm">
+      <p className="text-dim text-sm">
         A Universally Unique Identifier (UUID) is a 128‑bit value. Generate various versions below.
       </p>
       <div className="flex items-center gap-3 flex-wrap">
@@ -56,7 +56,7 @@ export default function UUIDGenerator() {
             key={v}
             onClick={() => setVersion(v)}
             className={`px-4 py-2 rounded-xl border transition-smooth ${
-              version === v ? "bg-green-600 text-white border-green-600" : "bg-white border-gray-200"
+              version === v ? "bg-green-600 text-text border-green-600" : "bg-surface border-hairline"
             }`}
           >
             {v}
@@ -64,8 +64,8 @@ export default function UUIDGenerator() {
         ))}
       </div>
       <div className="flex items-center gap-3">
-        <span className="text-sm text-gray-700 dark:text-gray-200">Quantity</span>
-        <div className="inline-flex items-center rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
+        <span className="text-sm text-dim ">Quantity</span>
+        <div className="inline-flex items-center rounded-xl border bg-surface border-hairline ">
           <button onClick={() => setQuantity((q) => Math.max(1, q - 1))} className="px-3 py-2 text-lg">
             −
           </button>
@@ -75,7 +75,7 @@ export default function UUIDGenerator() {
             max={1000}
             value={quantity}
             onChange={(e) => setQuantity(Math.max(1, Math.min(1000, Number(e.target.value) || 1)))}
-            className="w-24 h-10 text-center bg-transparent text-white dark:text-white caret-white"
+            className="w-24 h-10 text-center bg-transparent text-text caret-white"
           />
           <button onClick={() => setQuantity((q) => Math.min(1000, q + 1))} className="px-3 py-2 text-lg">
             +
@@ -95,7 +95,7 @@ export default function UUIDGenerator() {
       <textarea
         readOnly
         value={uuids.join("\n")}
-        className="w-full h-36 p-3 border border-gray-200 rounded-2xl bg-gray-50 dark:bg-gray-900/40 dark:border-gray-700/50 font-mono text-sm text-gray-900 dark:text-gray-100"
+        className="w-full h-36 p-3 border border-hairline rounded-2xl bg-surface-2 font-mono text-sm text-text "
       />
     </div>
   );

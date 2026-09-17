@@ -75,30 +75,30 @@ export default function RSAKeyGenerator() {
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-3">
-        <div className="text-sm text-gray-600 dark:text-gray-300">Bits</div>
-        <div className="inline-flex items-center rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 overflow-hidden">
-          <button onClick={decBits} className="px-2 py-1 text-lg text-gray-700 dark:text-gray-200">−</button>
-          <div className="px-3 py-1 text-sm text-gray-900 dark:text-gray-100">{bits}</div>
-          <button onClick={incBits} className="px-2 py-1 text-lg text-gray-700 dark:text-gray-200">+</button>
+        <div className="text-sm text-dim ">Bits</div>
+        <div className="inline-flex items-center rounded-xl border bg-surface border-hairline overflow-hidden">
+          <button onClick={decBits} className="px-2 py-1 text-lg text-dim ">−</button>
+          <div className="px-3 py-1 text-sm text-text ">{bits}</div>
+          <button onClick={incBits} className="px-2 py-1 text-lg text-dim ">+</button>
         </div>
         <button onClick={refresh} disabled={busy} className="btn-secondary px-4 py-2">{busy ? "Generating…" : "Refresh key-pair"}</button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Public key</label>
+          <label className="block text-sm font-medium text-dim mb-2">Public key</label>
           <textarea
             readOnly
             value={publicKey}
-            className="w-full h-96 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-xs text-gray-900 bg-white/60 dark:bg-gray-900/40 dark:text-gray-100 dark:border-gray-700/50"
+            className="w-full h-96 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-xs text-text bg-surface "
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Private key</label>
+          <label className="block text-sm font-medium text-dim mb-2">Private key</label>
           <textarea
             readOnly
             value={privateKey}
-            className="w-full h-96 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-xs text-gray-900 bg-white/60 dark:bg-gray-900/40 dark:text-gray-100 dark:border-gray-700/50"
+            className="w-full h-96 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-xs text-text bg-surface "
           />
         </div>
       </div>

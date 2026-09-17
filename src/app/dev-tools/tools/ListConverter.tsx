@@ -140,44 +140,44 @@ export default function ListConverter() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         This tool can process column‑based data and apply various changes (transpose, add prefix and suffix, reverse list, sort list, lowercase values, truncate values) to each row.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Trim list items</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Trim list items</span>
               <input type="checkbox" checked={trimItems} onChange={(e) => setTrimItems(e.target.checked)} />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Remove duplicates</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Remove duplicates</span>
               <input type="checkbox" checked={removeDuplicates} onChange={(e) => setRemoveDuplicates(e.target.checked)} />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Case‑insensitive dedupe</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Case‑insensitive dedupe</span>
               <input type="checkbox" checked={caseInsensitiveDedupe} onChange={(e) => setCaseInsensitiveDedupe(e.target.checked)} />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Convert to lowercase</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Convert to lowercase</span>
               <input type="checkbox" checked={lowercase} onChange={(e) => setLowercase(e.target.checked)} />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Keep line breaks</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Keep line breaks</span>
               <input type="checkbox" checked={keepLineBreaks} onChange={(e) => setKeepLineBreaks(e.target.checked)} />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Split on whitespace</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Split on whitespace</span>
               <input type="checkbox" checked={splitOnWhitespace} onChange={(e) => setSplitOnWhitespace(e.target.checked)} />
             </label>
-            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200">Ignore empty items</span>
+            <label className="flex items-center justify-between gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim ">Ignore empty items</span>
               <input type="checkbox" checked={ignoreEmpty} onChange={(e) => setIgnoreEmpty(e.target.checked)} />
             </label>
-            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200 w-32">Sort list</span>
-              <select value={sortMode} onChange={(e) => setSortMode(e.target.value as SortMode)} className="flex-1 bg-transparent outline-none text-sm text-white">
+            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim w-32">Sort list</span>
+              <select value={sortMode} onChange={(e) => setSortMode(e.target.value as SortMode)} className="flex-1 bg-transparent outline-none text-sm text-text">
                 <option value="none">No sort</option>
                 <option value="alpha">Sort alphabetically</option>
                 <option value="reverse">Sort reverse</option>
@@ -185,44 +185,44 @@ export default function ListConverter() {
                 <option value="len-desc">Sort by length (desc)</option>
               </select>
             </div>
-            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200 w-32">Input separator</span>
-              <input value={separator} onChange={(e) => setSeparator(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-white" />
+            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim w-32">Input separator</span>
+              <input value={separator} onChange={(e) => setSeparator(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-text" />
             </div>
-            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200 w-32">Output separator</span>
-              <input value={outputSeparator} onChange={(e) => setOutputSeparator(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-white" />
+            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim w-32">Output separator</span>
+              <input value={outputSeparator} onChange={(e) => setOutputSeparator(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-text" />
             </div>
-            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200 w-24">Wrap item</span>
-              <input placeholder="" value={itemPrefix} onChange={(e) => setItemPrefix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-white" />
-              <input placeholder="" value={itemSuffix} onChange={(e) => setItemSuffix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-white" />
+            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim w-24">Wrap item</span>
+              <input placeholder="" value={itemPrefix} onChange={(e) => setItemPrefix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-text" />
+              <input placeholder="" value={itemSuffix} onChange={(e) => setItemSuffix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-text" />
             </div>
-            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-gray-200 dark:border-gray-700">
-              <span className="text-sm text-gray-700 dark:text-gray-200 w-24">Wrap list</span>
-              <input placeholder="" value={listPrefix} onChange={(e) => setListPrefix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-white" />
-              <input placeholder="" value={listSuffix} onChange={(e) => setListSuffix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-white" />
+            <div className="flex items-center gap-3 px-3 h-10 rounded-xl border border-hairline ">
+              <span className="text-sm text-dim w-24">Wrap list</span>
+              <input placeholder="" value={listPrefix} onChange={(e) => setListPrefix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-text" />
+              <input placeholder="" value={listSuffix} onChange={(e) => setListSuffix(e.target.value)} className="flex-1 bg-transparent outline-none text-sm text-text" />
             </div>
           </div>
         </section>
 
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-gray-100">Your input data</h3>
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+          <h3 className="font-medium text-text ">Your input data</h3>
           <textarea
             value={rawInput}
             onChange={(e) => setRawInput(e.target.value)}
             placeholder="Paste your input data here..."
-            className="w-full h-[28rem] p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-white bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40"
+            className="w-full h-[28rem] p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface "
           />
         </section>
       </div>
 
       <div className="grid grid-cols-1">
-        <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-gray-100">Your transformed data</h3>
-          <textarea value={output} readOnly className="w-full h-24 p-3 border border-gray-200 rounded-2xl font-mono text-sm text-white bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40" />
+        <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+          <h3 className="font-medium text-text ">Your transformed data</h3>
+          <textarea value={output} readOnly className="w-full h-24 p-3 border border-hairline rounded-2xl font-mono text-sm text-text bg-surface " />
           <div>
-            <button onClick={() => copy(output)} className="px-4 h-10 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white">Copy to clipboard</button>
+            <button onClick={() => copy(output)} className="px-4 h-10 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text">Copy to clipboard</button>
           </div>
         </section>
       </div>

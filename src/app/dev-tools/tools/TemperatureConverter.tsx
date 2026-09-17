@@ -93,36 +93,34 @@ export default function TemperatureConverter() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">Temperature converter</div>
-      <p className="text-sm text-gray-400">Degrees temperature conversions for Kelvin, Celsius, Fahrenheit, Rankine, Delisle, Newton, Réaumur, and Rømer.</p>
 
       <div className="space-y-3">
         {rows.map(({ scale, value }) => (
           <div key={scale.key} className="grid grid-cols-[10rem_1fr_auto] gap-3 items-center">
-            <div className="text-gray-200">{scale.label}</div>
+            <div className="text-text">{scale.label}</div>
             <div className="flex items-center gap-2">
               <input
                 type="number"
                 value={formatNumber(value)}
                 onChange={(e) => setFromScale(scale, Number(e.target.value))}
-                className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                className="min-w-0 flex-1 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
               />
               <button
                 type="button"
-                className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200"
+                className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text"
                 onClick={() => setFromScale(scale, (value || 0) - 1)}
               >
                 −
               </button>
               <button
                 type="button"
-                className="shrink-0 px-3 h-10 rounded-xl border border-gray-700 text-gray-200"
+                className="shrink-0 px-3 h-10 rounded-xl border border-hairline text-text"
                 onClick={() => setFromScale(scale, (value || 0) + 1)}
               >
                 +
               </button>
             </div>
-            <div className="px-3 h-10 rounded-2xl border border-gray-700 bg-gray-900/40 text-gray-200 flex items-center justify-center">
+            <div className="px-3 h-10 rounded-2xl border border-hairline bg-surface text-text flex items-center justify-center">
               {scale.symbol}
             </div>
           </div>

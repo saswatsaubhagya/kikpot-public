@@ -81,26 +81,26 @@ export default function RomanNumeralConverter() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         Convert Roman numerals to numbers and convert numbers to Roman numerals.
       </p>
 
-      <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-        <h3 className="font-medium text-gray-900 dark:text-gray-100">Number to Roman</h3>
+      <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+        <h3 className="font-medium text-text ">Number to Roman</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
           <input
             value={arabic}
             onChange={(e) => setArabic(e.target.value)}
-            className="md:col-span-1 h-11 px-3 rounded-xl border border-gray-200 bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40 text-white font-mono"
+            className="md:col-span-1 h-11 px-3 rounded-xl border border-hairline bg-surface text-text font-mono"
             placeholder="e.g. 42"
           />
-          <div className="md:col-span-1 text-2xl text-center text-white font-semibold">
+          <div className="md:col-span-1 text-2xl text-center text-text font-semibold">
             {arabicResult || ""}
           </div>
           <div className="md:col-span-1 flex md:justify-end">
             <button
               onClick={() => copy(arabicResult)}
-              className="px-4 h-11 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white"
+              className="px-4 h-11 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text"
             >
               Copy
             </button>
@@ -108,22 +108,22 @@ export default function RomanNumeralConverter() {
         </div>
       </section>
 
-      <section className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-4">
-        <h3 className="font-medium text-gray-900 dark:text-gray-100">Roman to Number</h3>
+      <section className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-4">
+        <h3 className="font-medium text-text ">Roman to Number</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
           <input
             value={roman}
             onChange={(e) => setRoman(e.target.value)}
-            className="md:col-span-1 h-11 px-3 rounded-xl border border-gray-200 bg-white/60 dark:bg-gray-900/40 dark:border-gray-700/40 text-white font-mono"
+            className="md:col-span-1 h-11 px-3 rounded-xl border border-hairline bg-surface text-text font-mono"
             placeholder="e.g. XLII"
           />
-          <div className="md:col-span-1 text-2xl text-center text-white font-semibold">
+          <div className="md:col-span-1 text-2xl text-center text-text font-semibold">
             {romanResult || ""}
           </div>
           <div className="md:col-span-1 flex md:justify-end">
             <button
               onClick={() => copy(romanResult)}
-              className="px-4 h-11 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-smooth text-white"
+              className="px-4 h-11 rounded-xl border border-hairline hover:bg-surface-2 dark:hover:bg-surface-2 transition-smooth text-text"
             >
               Copy
             </button>

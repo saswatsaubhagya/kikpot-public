@@ -1,393 +1,295 @@
 import Image from "next/image";
-import AnimatedSection from "./components/AnimatedSection";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import { tools } from "./dev-tools/toolsData";
+
+const services = [
+  {
+    title: "Software development",
+    summary:
+      "Custom software built to your business, from web applications to enterprise systems.",
+    image: "/images/software-modern.svg",
+    points: ["Custom development", "Web & mobile apps", "Enterprise systems"],
+  },
+  {
+    title: "Cloud solutions",
+    summary:
+      "Migration and scalable infrastructure, so capacity follows demand instead of guesswork.",
+    image: "/images/cloud-modern.svg",
+    points: ["Cloud migration", "Infrastructure", "Scaling"],
+  },
+  {
+    title: "Cybersecurity",
+    summary:
+      "Protection for the systems and data your business cannot afford to lose.",
+    image: "/images/security-modern.svg",
+    points: ["Threat protection", "Compliance", "Incident response"],
+  },
+  {
+    title: "AI solutions",
+    summary:
+      "Machine learning and automation applied where they measurably change a decision.",
+    image: "/images/ai-modern.svg",
+    points: ["Machine learning", "Predictive analytics", "Automation"],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900">
-      <Navbar />
-      
-      {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-white via-purple-50 to-blue-50 text-gray-900 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 dark:text-white">
-        {/* Enhanced animated background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-          
-          {/* Floating particles */}
-          <div className="absolute top-20 left-20 w-2 h-2 bg-purple-400 rounded-full animate-float opacity-60"></div>
-          <div className="absolute top-40 right-32 w-1 h-1 bg-blue-400 rounded-full animate-float delay-1000 opacity-80"></div>
-          <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-float delay-2000 opacity-70"></div>
-          
-          {/* Gradient mesh overlay */}
-          <div className="absolute inset-0 bg-gradient-mesh opacity-5"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 py-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="flex flex-col items-center lg:items-start text-center lg:text-left"
-            >
-              {/* Badge */}
-              <AnimatedSection
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-sm font-medium text-purple-200 mb-8"
-              >
-                <span className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
-                 Innovating Tomorrow&apos;s Solutions
-              </AnimatedSection>
-              
-              {/* Main heading */}
-              <AnimatedSection
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-                className="mb-8"
-              >
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-tight">
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-purple-700 to-blue-700 dark:from-white dark:via-purple-200 dark:to-blue-200">
-                    Transform Your Business
-                  </span>
-                  <br />
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400">
-                    with Kikpot
-                  </span>
-                </h1>
-              </AnimatedSection>
-              
-              {/* Subtitle */}
-              <AnimatedSection
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="mb-12"
-              >
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-2xl">
-                  Your trusted partner for innovative IT solutions and digital transformation. 
-                  We build the future, today.
-                </p>
-              </AnimatedSection>
-              
-              {/* CTA Buttons */}
-              <AnimatedSection
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-              >
-                <Link href="/contact" className="btn-primary px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/30">
-                  Get Started
-                </Link>
-                <Link href="/services" className="btn-secondary px-12 py-5 text-lg backdrop-blur-sm border-white/20 text-white hover:bg-white/10">
-                  Learn More
-                </Link>
-              </AnimatedSection>
-              
-              {/* Stats */}
-              <AnimatedSection
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="flex items-center gap-8 mt-12 text-sm text-gray-600 dark:text-gray-400"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span>500+ Projects Delivered</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-500"></div>
-                  <span>99.9% Uptime</span>
-                </div>
-              </AnimatedSection>
-            </AnimatedSection>
-            
-            {/* Hero Image */}
-            <AnimatedSection
-              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-              className="relative h-[500px] lg:h-[600px] group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700"></div>
-              <Image
-                src="/images/hero-illustration.svg"
-                alt="Digital Transformation"
-                fill
-                className="object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-700"
-                priority
-              />
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-canvas">
+      <Navbar overlay />
 
-      {/* Services Section */}
-      <section className="py-32 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-radial from-purple-100/30 via-transparent to-transparent dark:from-purple-900/20"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <AnimatedSection
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full text-purple-600 dark:text-purple-400 text-sm font-semibold mb-6 shadow-lg">
-              <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-              What We Offer
-            </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 text-balance">
-              <span className="gradient-text">Our Services</span>
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-light leading-relaxed text-balance">
-              Comprehensive IT solutions tailored to your business needs, delivered with precision and innovation
-            </p>
-          </AnimatedSection>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-                title: "Software Development",
-                description: "Custom software solutions tailored to your business needs, from web applications to enterprise systems.",
-                image: "/images/software-modern.svg",
-                gradient: "from-blue-500 to-cyan-500",
-                features: ["Custom Development", "Web & Mobile Apps", "Enterprise Solutions"]
-              },
-              {
-                icon: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
-                title: "Cloud Solutions",
-                description: "Scalable cloud infrastructure and migration services to optimize your business operations.",
-                image: "/images/cloud-modern.svg",
-                gradient: "from-purple-500 to-pink-500",
-                features: ["Cloud Migration", "Infrastructure", "Scalability"]
-              },
-              {
-                icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-                title: "Cybersecurity",
-                description: "Comprehensive security solutions to protect your digital assets and ensure business continuity.",
-                image: "/images/security-modern.svg",
-                gradient: "from-red-500 to-orange-500",
-                features: ["Threat Protection", "Compliance", "Incident Response"]
-              },
-              {
-                icon: "M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14a6 6 0 00-6 6c0 3.309 2.691 6 6 6s6-2.691 6-6a6 6 0 00-6-6z",
-                title: "AI Solutions",
-                description: "Advanced AI and machine learning solutions to drive intelligent business decisions.",
-                image: "/images/ai-modern.svg",
-                gradient: "from-green-500 to-teal-500",
-                features: ["Machine Learning", "Predictive Analytics", "Automation"]
-              }
-            ].map((service, index) => (
-              <AnimatedSection
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group card p-8 hover:shadow-2xl hover:shadow-purple-500/10"
-              >
-                <div className="relative h-48 mb-8 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-contain p-6 group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg group-hover:shadow-xl`}>
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={service.icon} />
-                  </svg>
-                </div>
-                
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-light mb-6">
-                  {service.description}
-                </p>
-                
-                {/* Features list */}
-                <div className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                      <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
-                      <span>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Hero: the one place the page is loud. Violet-to-blue, serif on top. */}
+      <section className="on-brand hero-field relative overflow-hidden pt-32 pb-20 text-brand-ink md:pt-40 md:pb-28">
+        <div
+          className="pointer-events-none absolute -right-40 -top-40 h-[620px] w-[620px] rounded-full bg-brand/25 blur-[130px]"
+          aria-hidden="true"
+        />
 
-      {/* Contact Section */}
-      <section className="py-32 bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-conic from-purple-100/20 via-transparent to-blue-100/20 dark:from-purple-900/20 dark:to-blue-900/20"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="relative h-[500px] lg:h-[600px] group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-3xl blur-3xl group-hover:blur-2xl transition-all duration-700"></div>
-              <Image
-                src="/images/contact-illustration.svg"
-                alt="Contact Us"
-                fill
-                className="object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-700"
-              />
-            </AnimatedSection>
-            
-            <AnimatedSection
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="max-w-2xl"
-            >
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full text-purple-600 dark:text-purple-400 text-sm font-semibold mb-8 shadow-lg">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-                Get In Touch
-              </div>
-              
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight text-balance">
-                <span className="gradient-text">Ready to Transform</span>
+        <div className="relative mx-auto max-w-[1200px] px-6">
+          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">
+            <div className="rise lg:col-span-7">
+              <p className="eyebrow text-brand-soft">Kikpot — IT partner since day one</p>
+
+              <h1 className="display mt-6 text-[clamp(2.75rem,8vw,5.25rem)]">
+                Software your business
                 <br />
-                <span className="text-gray-900 dark:text-white">Your Business?</span>
-              </h2>
-              
-              <p className="text-xl text-gray-600 dark:text-gray-400 mb-12 font-light leading-relaxed text-balance">
-                Let&apos;s discuss how we can help you achieve your digital goals and take your business to the next level
+                can keep running on.
+              </h1>
+
+              <p className="measure mt-7 text-lg leading-relaxed text-brand-ink/75">
+                We design, build, and operate the systems companies depend on &mdash;
+                development, cloud, security, and AI, handled by one team rather
+                than four vendors.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="btn-primary px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/30">
-                  Contact Us
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="/contact" className="btn-primary">
+                  Start a project
                 </Link>
-                <Link href="/services" className="btn-secondary px-12 py-5 text-lg backdrop-blur-sm">
-                  Learn More
+                <Link href="/services" className="btn-secondary">
+                  See what we do
                 </Link>
               </div>
-              
-              {/* Contact info */}
-              <div className="mt-12 p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-gray-700/20">
-                <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="font-medium">Available 24/7 for urgent support</span>
-                </div>
-              </div>
-            </AnimatedSection>
+
+              <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-brand-ink/15 pt-7">
+                {[
+                  { k: "Projects delivered", v: "500+" },
+                  { k: "Uptime", v: "99.9%" },
+                  { k: "Free dev tools", v: String(tools.length) },
+                ].map((stat) => (
+                  <div key={stat.k}>
+                    <dd className="display text-[2.25rem] text-brand-soft">{stat.v}</dd>
+                    <dt className="mt-1 text-sm text-brand-ink/60">{stat.k}</dt>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div
+              className="rise lg:col-span-5"
+              style={{ animationDelay: "140ms" }}
+              aria-hidden="true"
+            >
+              <HeroFigure />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-br from-white via-gray-50 to-white text-gray-900 dark:from-slate-900 dark:via-gray-900 dark:to-slate-900 dark:text-white py-24 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-radial from-purple-500/5 via-transparent to-blue-500/5"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <h3 className="text-3xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
-                KIKPOT
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-light text-balance">
-                Transforming businesses through innovative IT solutions and cutting-edge technology
-              </p>
-            </div>
-            
-            {/* <div>
-              <h4 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">Services</h4>
-              <ul className="space-y-4 text-gray-600 dark:text-gray-400">
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Software Development
-                </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Cloud Solutions
-                </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Cybersecurity
-                </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  AI Solutions
-                </li>
+      {/* Services */}
+      <section className="mx-auto max-w-[1200px] px-6 py-24 md:py-32">
+        <div className="max-w-2xl">
+          <p className="eyebrow">What we do</p>
+          <h2 className="display mt-5 text-[clamp(2rem,4.5vw,3.25rem)]">
+            Four practices, one team
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-dim">
+            Most work needs more than one of these. They sit together, so the
+            handoff between them is a conversation rather than a contract.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          {services.map((service) => (
+            <article key={service.title} className="card p-8">
+              <div className="relative h-14 w-14 overflow-hidden rounded-[12px] bg-[#f1f0fa]">
+                <Image src={service.image} alt="" fill className="object-contain p-1" />
+              </div>
+
+              <h3 className="display mt-6 text-[1.75rem]">{service.title}</h3>
+              <p className="mt-3 leading-relaxed text-dim">{service.summary}</p>
+
+              <ul className="mt-6 space-y-2.5 border-t border-hairline pt-5">
+                {service.points.map((point) => (
+                  <li key={point} className="flex items-center gap-3 text-sm text-dim">
+                    <span className="h-px w-3 shrink-0 bg-accent" />
+                    {point}
+                  </li>
+                ))}
               </ul>
-            </div> */}
-            
-            <div>
-              <h4 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">Company</h4>
-              <ul className="space-y-4 text-gray-600 dark:text-gray-400">
-                <li>
-                  <Link href="/about" className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                    <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                    About Us
-                  </Link>
-                </li>
-                {/* <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Careers
-                </li> */}
-                <li>
-                  <Link href="/blog" className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                    <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                    Blog
-                  </Link>
-                </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  Contact
-                </li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">Contact</h4>
-              <ul className="space-y-4 text-gray-600 dark:text-gray-400">
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  info@kikpot.com
-                </li>
-                <li className="hover:text-purple-400 transition-colors cursor-pointer font-light flex items-center gap-2">
-                  <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
-                  +91 7653955621
-                </li>
-              </ul>
-            </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Dev tools */}
+      <section className="bg-surface-2">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-8 px-6 py-20 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <p className="eyebrow">Free to use</p>
+            <h2 className="display mt-5 text-[clamp(1.75rem,3.5vw,2.75rem)]">
+              {tools.length} developer tools, no account needed
+            </h2>
+            <p className="measure mt-4 leading-relaxed text-dim">
+              Converters, generators, parsers, and encoders we built for our own
+              work and left open. The quickest way to see how we build.
+            </p>
           </div>
-          
-          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center text-gray-600 dark:text-gray-400">
-            <p className="font-light">&copy; {new Date().getFullYear()} Kikpot. All rights reserved.</p>
+          <div className="md:col-span-4 md:justify-self-end">
+            <Link href="/dev-tools" className="btn-primary">
+              Open dev tools
+            </Link>
           </div>
         </div>
-      </footer>
+      </section>
 
-      {/* Scroll to top button */}
+      {/* Contact */}
+      <section className="mx-auto max-w-[1200px] px-6 py-24 md:py-32">
+        <div className="grid items-center gap-14 lg:grid-cols-12">
+          <div className="relative h-[300px] lg:col-span-5 lg:h-[420px]">
+            <Image
+              src="/images/contact-illustration.svg"
+              alt="Illustration of a conversation between a client and the Kikpot team"
+              fill
+              className="object-contain"
+            />
+          </div>
+
+          <div className="lg:col-span-7">
+            <p className="eyebrow">Get in touch</p>
+            <h2 className="display mt-5 text-[clamp(2rem,4.5vw,3.5rem)]">
+              Tell us what is breaking, or what you want to build.
+            </h2>
+            <p className="measure mt-5 text-lg leading-relaxed text-dim">
+              Describe the problem in a few lines. We will tell you whether we are
+              the right team for it, and what it would take.
+            </p>
+
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-primary">
+                Start a project
+              </Link>
+              <a href="mailto:info@kikpot.com" className="btn-secondary">
+                info@kikpot.com
+              </a>
+            </div>
+
+            <div className="card mt-10 flex items-center gap-3 p-5">
+              <span className="h-2 w-2 shrink-0 rounded-full bg-brand" />
+              <p className="text-sm text-dim">
+                <span className="font-medium text-text">
+                  Available 24/7 for urgent support.
+                </span>{" "}
+                Existing clients reach an on-call engineer, not a ticket queue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
       <ScrollToTop />
     </div>
+  );
+}
+
+/* Hand-drawn hero figure: a build panel in front of a ship-log panel.
+   Flat vector, brand colours only, so it reads at any size. */
+function HeroFigure() {
+  return (
+    <svg viewBox="0 0 520 440" className="h-auto w-full" role="presentation">
+      <circle
+        cx="300"
+        cy="180"
+        r="168"
+        fill="none"
+        stroke="var(--accent)"
+        strokeWidth="1"
+        opacity="0.45"
+      />
+      <circle cx="132" cy="96" r="5" fill="var(--accent)" />
+
+      {/* back panel */}
+      <g>
+        <rect x="140" y="36" width="330" height="214" rx="16" fill="#2a1a63" />
+        <rect
+          x="140.5"
+          y="36.5"
+          width="329"
+          height="213"
+          rx="15.5"
+          fill="none"
+          stroke="#c4b5fd"
+          strokeOpacity="0.28"
+        />
+        <g fill="#c4b5fd" opacity="0.75">
+          <rect x="164" y="64" width="86" height="8" rx="4" />
+          <rect x="164" y="88" width="150" height="8" rx="4" opacity="0.6" />
+        </g>
+        {/* bars: four releases, each one taller */}
+        <g fill="#c4b5fd">
+          <rect x="164" y="196" width="26" height="26" rx="4" opacity="0.45" />
+          <rect x="202" y="178" width="26" height="44" rx="4" opacity="0.6" />
+          <rect x="240" y="152" width="26" height="70" rx="4" opacity="0.78" />
+          <rect x="278" y="120" width="26" height="102" rx="4" />
+        </g>
+        <path
+          d="M177 188 L215 170 L253 144 L291 112"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <circle cx="291" cy="112" r="4.5" fill="var(--accent)" />
+        <g fill="#c4b5fd" opacity="0.5">
+          <rect x="356" y="152" width="90" height="8" rx="4" />
+          <rect x="356" y="172" width="64" height="8" rx="4" />
+          <rect x="356" y="192" width="78" height="8" rx="4" />
+          <rect x="356" y="212" width="50" height="8" rx="4" />
+        </g>
+      </g>
+
+      {/* front panel */}
+      <g>
+        <rect x="46" y="238" width="300" height="150" rx="16" fill="#f7f5ff" />
+        <rect x="46" y="238" width="300" height="42" rx="16" fill="#7c3aed" />
+        <rect x="46" y="266" width="300" height="14" fill="#7c3aed" />
+        <g fill="#f7f5ff" opacity="0.9">
+          <circle cx="70" cy="259" r="4" />
+          <circle cx="86" cy="259" r="4" />
+          <circle cx="102" cy="259" r="4" />
+        </g>
+        <rect x="128" y="254" width="104" height="10" rx="5" fill="#f7f5ff" opacity="0.45" />
+
+        <g>
+          <circle cx="74" cy="312" r="10" fill="none" stroke="#7c3aed" strokeWidth="2" />
+          <path
+            d="M69.5 312 L73 315.5 L79 308"
+            fill="none"
+            stroke="#7c3aed"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <rect x="96" y="306" width="164" height="10" rx="5" fill="#7c3aed" opacity="0.22" />
+        </g>
+        <g>
+          <circle cx="74" cy="352" r="10" fill="none" stroke="#3b82f6" strokeWidth="2" />
+          <rect x="96" y="346" width="120" height="10" rx="5" fill="#3b82f6" opacity="0.28" />
+        </g>
+      </g>
+    </svg>
   );
 }

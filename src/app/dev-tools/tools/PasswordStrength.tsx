@@ -74,44 +74,44 @@ export default function PasswordStrength() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter a password..."
-          className="w-full h-12 px-4 pr-10 rounded-2xl border bg-white/70 border-gray-200 backdrop-blur-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 dark:bg-gray-900/40 dark:border-gray-700/50 dark:text-gray-100"
+          className="w-full h-12 px-4 pr-10 rounded-2xl border bg-surface border-hairline backdrop-blur-xl focus:ring-2 focus:ring-brand/40 focus:border-brand "
         />
         <button
           onClick={() => setShow((v) => !v)}
-          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 grid place-items-center text-dim hover:text-dim dark:hover:text-text"
           aria-label="Toggle visibility"
         >
           {show ? "🙈" : "👁️"}
         </button>
       </div>
 
-      <div className="p-4 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50">
-        <div className="text-sm text-gray-600 dark:text-gray-300 mb-1">Duration to crack this password with brute force</div>
-        <div className="text-2xl font-semibold text-gray-900 dark:text-white">{formatDuration(stats.crackSeconds)}</div>
+      <div className="p-4 rounded-2xl border bg-surface border-hairline ">
+        <div className="text-sm text-dim mb-1">Duration to crack this password with brute force</div>
+        <div className="text-2xl font-semibold text-text ">{formatDuration(stats.crackSeconds)}</div>
       </div>
 
-      <div className="p-4 rounded-2xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50">
+      <div className="p-4 rounded-2xl border bg-surface border-hairline ">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">Password length</div>
-            <div className="text-gray-900 dark:text-gray-100">{stats.length}</div>
+            <div className="text-sm text-dim ">Password length</div>
+            <div className="text-text ">{stats.length}</div>
           </div>
           <div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">Entropy</div>
-            <div className="text-gray-900 dark:text-gray-100">{stats.entropyBits.toFixed(2)}</div>
+            <div className="text-sm text-dim ">Entropy</div>
+            <div className="text-text ">{stats.entropyBits.toFixed(2)}</div>
           </div>
           <div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">Character set size</div>
-            <div className="text-gray-900 dark:text-gray-100">{stats.charset}</div>
+            <div className="text-sm text-dim ">Character set size</div>
+            <div className="text-text ">{stats.charset}</div>
           </div>
           <div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">Score</div>
-            <div className="text-gray-900 dark:text-gray-100">{stats.score} / 100</div>
+            <div className="text-sm text-dim ">Score</div>
+            <div className="text-text ">{stats.score} / 100</div>
           </div>
         </div>
       </div>
 
-      <div className="text-xs text-gray-600 dark:text-gray-400">
+      <div className="text-xs text-dim ">
         <span className="font-semibold">Note:</span> The computed strength is based on the time it would take
         to crack the password using a brute force approach; it does not take into account dictionary
         attacks or other weaknesses (like reused passwords).

@@ -30,16 +30,16 @@ export default function ScrollToTop() {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0, y: 20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 8 }}
+          transition={{ duration: 0.15, ease: "easeOut" }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 p-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2"
+          className="card fixed bottom-6 right-6 z-40 rounded-full p-3.5 text-dim transition-colors duration-200 hover:text-brand"
           aria-label="Scroll to top"
         >
           <svg 
-            className="w-6 h-6" 
+            className="h-4 w-4" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -47,7 +47,7 @@ export default function ScrollToTop() {
             <path 
               strokeLinecap="round" 
               strokeLinejoin="round" 
-              strokeWidth={2} 
+              strokeWidth={1.5} 
               d="M5 10l7-7m0 0l7 7m-7-7v18" 
             />
           </svg>

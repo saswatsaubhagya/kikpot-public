@@ -47,23 +47,23 @@ export default function BcryptTool() {
   return (
     <div className="space-y-6">
       <div className="card bg-transparent border-none p-0">
-        <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">Hash</h3>
+        <h3 className="text-lg font-semibold mb-3 text-text ">Hash</h3>
         <div className="space-y-3">
           <input
             value={plain}
             onChange={(e) => setPlain(e.target.value)}
             placeholder="Your string to bcrypt..."
-            className="w-full h-10 px-3 rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+            className="w-full h-10 px-3 rounded-xl border bg-surface border-hairline text-text "
           />
           <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-700 dark:text-gray-200">Salt count</span>
+            <span className="text-sm text-dim ">Salt count</span>
             <input
               type="number"
               min={4}
               max={15}
               value={rounds}
               onChange={(e) => setRounds(Math.max(4, Math.min(15, Number(e.target.value) || 10)))}
-              className="h-8 w-20 px-2 rounded-lg border border-gray-200 dark:border-gray-700/50 bg-white/70 dark:bg-gray-900/60 text-sm text-gray-900 dark:text-gray-100"
+              className="h-8 w-20 px-2 rounded-lg border border-hairline bg-surface text-sm text-text "
             />
           </div>
           <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export default function BcryptTool() {
             )}
           </div>
           {hash && (
-            <div className="p-3 bg-gray-50 border border-gray-200 rounded-2xl dark:bg-gray-900/40 dark:border-gray-700/50 font-mono text-sm text-gray-900 dark:text-gray-100 break-all">
+            <div className="p-3 bg-surface-2 border border-hairline rounded-2xl font-mono text-sm text-text break-all">
               {hash}
             </div>
           )}
@@ -85,21 +85,21 @@ export default function BcryptTool() {
       </div>
 
       <div className="card bg-transparent border-none p-0">
-        <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">Compare string with hash</h3>
+        <h3 className="text-lg font-semibold mb-3 text-text ">Compare string with hash</h3>
         <div className="space-y-3">
           <input
             value={cmpPlain}
             onChange={(e) => setCmpPlain(e.target.value)}
             placeholder="Your string to compare..."
-            className="w-full h-10 px-3 rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+            className="w-full h-10 px-3 rounded-xl border bg-surface border-hairline text-text "
           />
           <input
             value={cmpHash}
             onChange={(e) => setCmpHash(e.target.value)}
             placeholder="Your hash to compare..."
-            className="w-full h-10 px-3 rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+            className="w-full h-10 px-3 rounded-xl border bg-surface border-hairline text-text "
           />
-          <div className="text-sm text-gray-800 dark:text-gray-200">Do they match ? {match === null ? "–" : match ? "Yes" : "No"}</div>
+          <div className="text-sm text-dim ">Do they match ? {match === null ? "–" : match ? "Yes" : "No"}</div>
         </div>
       </div>
     </div>

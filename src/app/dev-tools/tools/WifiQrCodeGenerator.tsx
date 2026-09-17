@@ -89,16 +89,14 @@ export default function WifiQrCodeGenerator() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">WiFi QR Code generator</div>
-      <p className="text-sm text-gray-400">Generate and download QR codes for quick connections to WiFi networks.</p>
 
-      <div className="p-6 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-6">
+      <div className="p-6 rounded-2xl bg-surface border border-hairline space-y-6">
         <div className="space-y-2">
-          <label className="text-sm text-gray-300">Encryption method</label>
+          <label className="text-sm text-dim">Encryption method</label>
           <select
             value={securityUi}
             onChange={(e) => setSecurityUi(e.target.value as typeof securityUi)}
-            className="w-full h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+            className="w-full h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
           >
             <option value="WPA/WPA2">WPA/WPA2</option>
             <option value="WEP">WEP</option>
@@ -108,15 +106,15 @@ export default function WifiQrCodeGenerator() {
 
         <div className="grid grid-cols-1 gap-4">
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">SSID:</label>
+            <label className="text-sm text-dim">SSID:</label>
             <div className="flex items-center gap-3">
               <input
                 value={ssid}
                 onChange={(e) => setSsid(e.target.value)}
-                className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
                 placeholder="Your WiFi SSID..."
               />
-              <label className="flex items-center gap-2 text-sm text-gray-300">
+              <label className="flex items-center gap-2 text-sm text-dim">
                 <input type="checkbox" checked={hidden} onChange={(e) => setHidden(e.target.checked)} />
                 Hidden SSID
               </label>
@@ -124,19 +122,19 @@ export default function WifiQrCodeGenerator() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">Password:</label>
+            <label className="text-sm text-dim">Password:</label>
             <div className="flex items-center gap-3">
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+                className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
                 placeholder="Your WiFi Password..."
                 disabled={security === "nopass"}
               />
               <button
                 onClick={() => setShowPassword((s) => !s)}
-                className="px-3 h-10 rounded-xl border border-gray-700 text-gray-200 hover:bg-gray-800"
+                className="px-3 h-10 rounded-xl border border-hairline text-text hover:bg-surface-2"
                 aria-label="Toggle password visibility"
                 type="button"
               >
@@ -148,37 +146,37 @@ export default function WifiQrCodeGenerator() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">Foreground color:</label>
+            <label className="text-sm text-dim">Foreground color:</label>
             <div className="flex items-center gap-3">
               <input
                 type="color"
                 value={normalizeHexColor(fg, '#000000')}
                 onChange={(e) => setFg(e.target.value)}
-                className="h-10 w-12 p-0 rounded-xl border border-gray-700 bg-transparent"
+                className="h-10 w-12 p-0 rounded-xl border border-hairline bg-transparent"
                 aria-label="Foreground color picker"
               />
               <input
                 value={fg}
                 onChange={(e) => setFg(e.target.value)}
-                className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-black text-white font-mono text-sm"
+                className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-surface-2 text-text font-mono text-sm"
                 placeholder="#000000"
               />
             </div>
           </div>
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">Background color:</label>
+            <label className="text-sm text-dim">Background color:</label>
             <div className="flex items-center gap-3">
               <input
                 type="color"
                 value={normalizeHexColor(bg, '#ffffff')}
                 onChange={(e) => setBg(e.target.value)}
-                className="h-10 w-12 p-0 rounded-xl border border-gray-700 bg-transparent"
+                className="h-10 w-12 p-0 rounded-xl border border-hairline bg-transparent"
                 aria-label="Background color picker"
               />
               <input
                 value={bg}
                 onChange={(e) => setBg(e.target.value)}
-                className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-white text-black font-mono text-sm"
+                className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-surface text-text font-mono text-sm"
                 placeholder="#ffffff"
               />
             </div>
@@ -186,12 +184,12 @@ export default function WifiQrCodeGenerator() {
         </div>
 
         <div className="flex flex-col items-center gap-4">
-          <div className="p-3 rounded-xl bg-black/30 border border-gray-800">
+          <div className="p-3 rounded-xl bg-surface-2 border border-hairline">
             {dataUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={dataUrl} alt="wifi-qr" className="w-64 h-64 object-contain" />
             ) : (
-              <div className="w-64 h-64 flex items-center justify-center text-gray-500">Enter SSID to preview</div>
+              <div className="w-64 h-64 flex items-center justify-center text-dim">Enter SSID to preview</div>
             )}
           </div>
           <button onClick={download} className="btn-primary px-5 py-2.5" disabled={!dataUrl}>Download qr-code</button>

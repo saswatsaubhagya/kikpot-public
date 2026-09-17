@@ -37,33 +37,31 @@ export default function TextStatistics() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">Text statistics</div>
-      <p className="text-sm text-gray-400">Get information about a text, the number of characters, the number of words, its size in bytes, …</p>
 
-      <section className="p-6 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-5">
+      <section className="p-6 rounded-2xl bg-surface border border-hairline space-y-5">
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Type or paste text here..."
-          className="w-full h-40 p-3 rounded-2xl border border-gray-700 bg-transparent text-white font-mono text-sm"
+          className="w-full h-40 p-3 rounded-2xl border border-hairline bg-transparent text-text font-mono text-sm"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="p-4 rounded-2xl bg-gray-900/50 border border-gray-800">
-            <div className="text-sm text-gray-400">Character count</div>
-            <div className="mt-1 text-2xl font-semibold text-white">{stats.characters}</div>
+          <div className="p-4 rounded-2xl bg-surface-2 border border-hairline">
+            <div className="text-sm text-dim">Character count</div>
+            <div className="mt-1 text-2xl font-semibold text-text">{stats.characters}</div>
           </div>
-          <div className="p-4 rounded-2xl bg-gray-900/50 border border-gray-800">
-            <div className="text-sm text-gray-400">Word count</div>
-            <div className="mt-1 text-2xl font-semibold text-white">{stats.words}</div>
+          <div className="p-4 rounded-2xl bg-surface-2 border border-hairline">
+            <div className="text-sm text-dim">Word count</div>
+            <div className="mt-1 text-2xl font-semibold text-text">{stats.words}</div>
           </div>
-          <div className="p-4 rounded-2xl bg-gray-900/50 border border-gray-800">
-            <div className="text-sm text-gray-400">Line count</div>
-            <div className="mt-1 text-2xl font-semibold text-white">{stats.lines}</div>
+          <div className="p-4 rounded-2xl bg-surface-2 border border-hairline">
+            <div className="text-sm text-dim">Line count</div>
+            <div className="mt-1 text-2xl font-semibold text-text">{stats.lines}</div>
           </div>
-          <div className="p-4 rounded-2xl bg-gray-900/50 border border-gray-800">
-            <div className="text-sm text-gray-400">Byte size</div>
-            <div className="mt-1 text-2xl font-semibold text-white">{stats.bytes} Bytes</div>
+          <div className="p-4 rounded-2xl bg-surface-2 border border-hairline">
+            <div className="text-sm text-dim">Byte size</div>
+            <div className="mt-1 text-2xl font-semibold text-text">{stats.bytes} Bytes</div>
           </div>
         </div>
       </section>

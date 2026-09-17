@@ -47,21 +47,21 @@ export default function HashTextTool() {
   return (
     <div className="space-y-5">
       <div>
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">Your text to hash:</label>
+        <label className="block text-sm font-medium text-dim mb-2">Your text to hash:</label>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Your string to hash..."
-          className="w-full h-28 p-3 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm text-gray-900 bg-white/60 dark:bg-gray-900/40 dark:text-gray-100 dark:border-gray-700/50"
+          className="w-full h-28 p-3 border border-hairline rounded-2xl focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm text-text bg-surface "
         />
       </div>
 
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">Digest encoding</label>
+        <label className="block text-sm font-medium text-dim ">Digest encoding</label>
         <select
           value={encoding}
           onChange={(e) => setEncoding(e.target.value as "hex" | "base64")}
-          className="h-10 px-3 rounded-xl border bg-white/70 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50 text-gray-900 dark:text-gray-100"
+          className="h-10 px-3 rounded-xl border bg-surface border-hairline text-text "
         >
           <option value="hex">Hexadecimal (base 16)</option>
           <option value="base64">Base64</option>
@@ -70,10 +70,10 @@ export default function HashTextTool() {
 
       <div className="space-y-3">
         {algorithms.map((algo) => (
-          <div key={algo} className="flex items-center gap-3 p-3 rounded-xl border bg-white/60 border-gray-200 dark:bg-gray-900/40 dark:border-gray-700/50">
-            <div className="w-24 text-xs font-semibold text-gray-700 dark:text-gray-300">{algo}</div>
+          <div key={algo} className="flex items-center gap-3 p-3 rounded-xl border bg-surface border-hairline ">
+            <div className="w-24 text-xs font-semibold text-dim ">{algo}</div>
             <div className="flex-1 overflow-hidden">
-              <div className="truncate font-mono text-sm text-gray-900 dark:text-gray-100">{results[algo] || ""}</div>
+              <div className="truncate font-mono text-sm text-text ">{results[algo] || ""}</div>
             </div>
             <button onClick={() => copy(algo)} className="btn-secondary px-3 py-1.5 text-sm whitespace-nowrap">
               {copiedAlgo === algo ? "Copied" : "Copy"}

@@ -71,53 +71,51 @@ export default function QrCodeGenerator() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">QR Code generator</div>
-      <p className="text-sm text-gray-400">Generate and download a QR code for a URL (or just plain text), and customize the background and foreground colors.</p>
 
-      <div className="p-6 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-5">
+      <div className="p-6 rounded-2xl bg-surface border border-hairline space-y-5">
         <div className="grid grid-cols-1 gap-4">
-          <label className="text-sm text-gray-300">Text:</label>
+          <label className="text-sm text-dim">Text:</label>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full h-20 p-3 rounded-2xl border border-gray-700 bg-transparent text-white focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 font-mono text-sm"
+            className="w-full h-20 p-3 rounded-2xl border border-hairline bg-transparent text-text focus:ring-2 focus:ring-brand/40 focus:border-brand font-mono text-sm"
             placeholder="Paste text or URL..."
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">Foreground color:</label>
+            <label className="text-sm text-dim">Foreground color:</label>
             <div className="flex items-center gap-3">
               <input
                 type="color"
                 value={normalizeHexColor(fg, '#000000')}
                 onChange={(e) => setFg(e.target.value)}
-                className="h-10 w-12 p-0 rounded-xl border border-gray-700 bg-transparent"
+                className="h-10 w-12 p-0 rounded-xl border border-hairline bg-transparent"
                 aria-label="Foreground color picker"
               />
               <input
                 value={fg}
                 onChange={(e) => setFg(e.target.value)}
-                className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-black text-white font-mono text-sm"
+                className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-surface-2 text-text font-mono text-sm"
                 placeholder="#000000"
               />
             </div>
           </div>
           <div className="space-y-2">
-            <label className="text-sm text-gray-300">Background color:</label>
+            <label className="text-sm text-dim">Background color:</label>
             <div className="flex items-center gap-3">
               <input
                 type="color"
                 value={normalizeHexColor(bg, '#ffffff')}
                 onChange={(e) => setBg(e.target.value)}
-                className="h-10 w-12 p-0 rounded-xl border border-gray-700 bg-transparent"
+                className="h-10 w-12 p-0 rounded-xl border border-hairline bg-transparent"
                 aria-label="Background color picker"
               />
               <input
                 value={bg}
                 onChange={(e) => setBg(e.target.value)}
-                className="flex-1 h-10 px-3 rounded-2xl border border-gray-700 bg-white text-black font-mono text-sm"
+                className="flex-1 h-10 px-3 rounded-2xl border border-hairline bg-surface text-text font-mono text-sm"
                 placeholder="#ffffff"
               />
             </div>
@@ -125,12 +123,12 @@ export default function QrCodeGenerator() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm text-gray-300">Error resistance:</label>
+          <label className="text-sm text-dim">Error resistance:</label>
           <div className="relative">
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value as ErrorLevel)}
-              className="w-full h-10 px-3 rounded-2xl border border-gray-700 bg-transparent text-white"
+              className="w-full h-10 px-3 rounded-2xl border border-hairline bg-transparent text-text"
             >
               <option value="low">low</option>
               <option value="medium">medium</option>
@@ -141,12 +139,12 @@ export default function QrCodeGenerator() {
         </div>
 
         <div className="flex flex-col items-center gap-4">
-          <div className="p-3 rounded-xl bg-black/30 border border-gray-800">
+          <div className="p-3 rounded-xl bg-surface-2 border border-hairline">
             {dataUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img src={dataUrl} alt="qr" className="w-64 h-64 object-contain" />
             ) : (
-              <div className="w-64 h-64 flex items-center justify-center text-gray-500">No preview</div>
+              <div className="w-64 h-64 flex items-center justify-center text-dim">No preview</div>
             )}
           </div>
           <button onClick={download} className="btn-primary px-5 py-2.5">Download qr-code</button>

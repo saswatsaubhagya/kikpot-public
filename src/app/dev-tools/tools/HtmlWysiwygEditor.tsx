@@ -140,12 +140,12 @@ export default function HtmlWysiwygEditor() {
         onClick={onClick}
         aria-label={title || label}
         onMouseDown={(e) => e.preventDefault()} // Keep selection in the editor
-        className="px-2 py-1 rounded-lg text-sm hover:bg-gray-800/60 border border-gray-700/60 text-white"
+        className="px-2 py-1 rounded-lg text-sm hover:bg-surface-2/60 border border-hairline/60 text-text"
       >
         {label}
       </button>
       {title ? (
-        <div className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-1 rounded-md bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-150 shadow-lg border border-gray-700/60 z-50">
+        <div className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap px-2 py-1 rounded-md bg-surface-2 text-text text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-150 shadow-lg border border-hairline/60 z-50">
           {title}
           <div className="absolute left-1/2 -translate-x-1/2 top-full h-0 w-0 border-x-8 border-x-transparent border-t-8 border-t-gray-900" />
         </div>
@@ -155,10 +155,10 @@ export default function HtmlWysiwygEditor() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-gray-600 dark:text-gray-400">Online, feature‑rich WYSIWYG HTML editor which generates the source code of the content immediately.</p>
+      <p className="text-sm text-dim ">Online, feature‑rich WYSIWYG HTML editor which generates the source code of the content immediately.</p>
 
-      <section className="rounded-2xl border border-gray-800/70 overflow-visible">
-        <div className="flex items-center gap-2 p-2 bg-gray-900/40 border-b border-gray-800/70">
+      <section className="rounded-2xl border border-hairline overflow-visible">
+        <div className="flex items-center gap-2 p-2 bg-surface border-b border-hairline">
             <ToolbarButton label="B" title="Bold" onClick={() => apply("bold")} />
             <ToolbarButton label="I" title="Italic" onClick={() => apply("italic")} />
             <ToolbarButton label="U" title="Underline" onClick={() => apply("underline")} />
@@ -187,7 +187,7 @@ export default function HtmlWysiwygEditor() {
           contentEditable
           role="textbox"
           aria-multiline="true"
-          className="min-h-[260px] p-5 bg-gray-950/30 text-gray-100 focus:outline-none whitespace-pre-wrap"
+          className="min-h-[260px] p-5 bg-surface-2 text-text focus:outline-none whitespace-pre-wrap"
           suppressContentEditableWarning
         />
       </section>
@@ -203,11 +203,11 @@ export default function HtmlWysiwygEditor() {
       </div>
 
       {showCode && (
-        <section className="rounded-2xl border border-gray-800/70 overflow-hidden">
-          <div className="flex items-center justify-between p-2 bg-gray-900/40 border-b border-gray-800/70">
-            <div className="text-sm text-gray-400">HTML</div>
+        <section className="rounded-2xl border border-hairline overflow-hidden">
+          <div className="flex items-center justify-between p-2 bg-surface border-b border-hairline">
+            <div className="text-sm text-dim">HTML</div>
           </div>
-          <pre className="min-h-[260px] p-5 bg-gray-950/30 text-gray-100 overflow-auto text-sm">{formattedHtml}</pre>
+          <pre className="min-h-[260px] p-5 bg-surface-2 text-text overflow-auto text-sm">{formattedHtml}</pre>
         </section>
       )}
     </div>

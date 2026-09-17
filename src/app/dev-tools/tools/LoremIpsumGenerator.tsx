@@ -73,41 +73,39 @@ export default function LoremIpsumGenerator() {
 
   return (
     <div className="space-y-6">
-      <div className="text-4xl font-bold text-white">Lorem ipsum generator</div>
-      <p className="text-sm text-gray-400">Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
 
-      <section className="p-6 rounded-2xl bg-gray-900/40 border border-gray-800 space-y-6">
+      <section className="p-6 rounded-2xl bg-surface border border-hairline space-y-6">
         <div className="grid gap-5">
           <div className="grid grid-cols-1 md:grid-cols-[12rem_1fr] items-center gap-4">
-            <div className="text-gray-300">Paragraphs</div>
+            <div className="text-dim">Paragraphs</div>
             <input type="range" min={1} max={10} value={paragraphs} onChange={(e) => setParagraphs(Number(e.target.value))} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[12rem_1fr] items-center gap-4">
-            <div className="text-gray-300">Sentences per paragraph</div>
+            <div className="text-dim">Sentences per paragraph</div>
             <input type="range" min={1} max={12} value={sentences} onChange={(e) => setSentences(Number(e.target.value))} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[12rem_1fr] items-center gap-4">
-            <div className="text-gray-300">Words per sentence</div>
+            <div className="text-dim">Words per sentence</div>
             <input type="range" min={3} max={24} value={words} onChange={(e) => setWords(Number(e.target.value))} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[12rem_1fr] items-center gap-4">
-            <div className="text-gray-300">Start with lorem ipsum ?</div>
-            <label className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="text-dim">Start with lorem ipsum ?</div>
+            <label className="flex items-center gap-2 text-sm text-dim">
               <input type="checkbox" checked={startWithLorem} onChange={(e) => setStartWithLorem(e.target.checked)} />
             </label>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[12rem_1fr] items-center gap-4">
-            <div className="text-gray-300">As html ?</div>
-            <label className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="text-dim">As html ?</div>
+            <label className="flex items-center gap-2 text-sm text-dim">
               <input type="checkbox" checked={asHtml} onChange={(e) => setAsHtml(e.target.checked)} />
             </label>
           </div>
         </div>
 
         <div className="space-y-3">
-          <textarea value={output} readOnly className="w-full h-48 p-3 rounded-2xl border border-gray-700 bg-transparent text-white font-mono text-sm" />
+          <textarea value={output} readOnly className="w-full h-48 p-3 rounded-2xl border border-hairline bg-transparent text-text font-mono text-sm" />
           <div className="flex gap-3">
-            <button className="px-4 h-10 rounded-xl border border-gray-700 text-white hover:bg-gray-800" onClick={copy}>Copy</button>
+            <button className="px-4 h-10 rounded-xl border border-hairline text-text hover:bg-surface-2" onClick={copy}>Copy</button>
             <button className="btn-primary px-5 py-2.5" onClick={regenerate}>Refresh</button>
           </div>
         </div>

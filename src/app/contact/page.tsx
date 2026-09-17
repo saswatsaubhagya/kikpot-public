@@ -1,354 +1,339 @@
 "use client";
 
-import React, { useState } from 'react';
-import AnimatedSection from "../components/AnimatedSection";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import ScrollToTop from "../../components/ScrollToTop";
+
+const hours = [
+  { day: "Monday – Friday", time: "9:00 AM – 6:00 PM" },
+  { day: "Saturday", time: "10:00 AM – 4:00 PM" },
+  { day: "Sunday", time: "Closed" },
+];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.message) {
-      setErrorMessage('Please fill in all required fields.');
-      setSubmitStatus('error');
+      setErrorMessage("Please fill in all required fields.");
+      setSubmitStatus("error");
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
+    setSubmitStatus("idle");
+    setErrorMessage("");
 
     try {
-      const response = await fetch('https://n8n.saswatsaubhagya.in/webhook/9284abf3-19a2-4d8a-95b8-eb8febd940f9', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Basic ${process.env.NEXT_PUBLIC_AUTH_TOKEN || ''}`
-        },
-        body: JSON.stringify({
-          fullName: formData.name,
-          email: formData.email,
-          message: formData.message
-        })
-      });
+      const response = await fetch(
+        "https://n8n.saswatsaubhagya.in/webhook/9284abf3-19a2-4d8a-95b8-eb8febd940f9",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${process.env.NEXT_PUBLIC_AUTH_TOKEN || ""}`,
+          },
+          body: JSON.stringify({
+            fullName: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
 
       if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        // Reset checkbox
-        const consentCheckbox = document.getElementById('consent') as HTMLInputElement;
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        const consentCheckbox = document.getElementById("consent") as HTMLInputElement;
         if (consentCheckbox) consentCheckbox.checked = false;
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setErrorMessage('Failed to send message. Please try again later.');
-      setSubmitStatus('error');
+      console.error("Error submitting form:", error);
+      setErrorMessage("Failed to send message. Please try again later.");
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900">
-      <Navbar />
-      <section className="py-32 bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute inset-0 bg-gradient-mesh opacity-5"></div>
-          <div className="absolute top-20 left-20 w-2 h-2 bg-purple-400 rounded-full animate-float opacity-60"></div>
-          <div className="absolute top-40 right-32 w-1 h-1 bg-blue-400 rounded-full animate-float delay-1000 opacity-80"></div>
-          <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-float delay-2000 opacity-70"></div>
-          <div className="absolute inset-0 bg-gradient-conic from-purple-100/20 via-transparent to-blue-100/20 dark:from-purple-900/20 dark:to-blue-900/20"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <AnimatedSection
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full text-purple-600 dark:text-purple-400 text-sm font-semibold mb-6 shadow-lg">
-              <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-              Get in Touch
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight text-balance">
-              <span className="gradient-text">Contact</span>
-              <br />
-              <span className="text-gray-900 dark:text-white">Us</span>
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-light leading-relaxed text-balance">
-              We&apos;d love to hear from you. Reach out to discuss your project needs.
-            </p>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <AnimatedSection
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="card p-8 hover:shadow-2xl hover:shadow-purple-500/10"
-            >
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Send us a Message</h2>
-              
-              {/* Success/Error Messages */}
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl text-green-800 dark:text-green-200">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="font-medium">Message sent successfully! We&apos;ll get back to you soon.</span>
-                  </div>
-                </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-800 dark:text-red-200">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                    </svg>
-                    <span className="font-medium">{errorMessage}</span>
-                  </div>
-                </div>
-              )}
+  const field =
+    "w-full rounded-[10px] border border-hairline bg-surface px-4 py-3 text-[0.9375rem] outline-none transition-colors duration-200 focus:border-brand disabled:opacity-60";
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Full Name
-                    </label>
-                    <div className="relative">
-                      <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                          <path fillRule="evenodd" d="M12 2a5 5 0 100 10 5 5 0 000-10zM4 20a8 8 0 1116 0v1.25A1.75 1.75 0 0118.25 23h-12.5A1.75 1.75 0 014 21.25V20z" clipRule="evenodd" />
-                        </svg>
-                      </span>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                        required
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Email Address
-                    </label>
-                    <div className="relative">
-                      <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                          <path d="M1.5 8.67l9.546 5.73a1.5 1.5 0 001.408 0L22.5 8.67M3.75 6h16.5A2.25 2.25 0 0122.5 8.25v7.5A2.25 2.25 0 0120.25 18H3.75A2.25 2.25 0 011.5 15.75v-7.5A2.25 2.25 0 013.75 6z" />
-                        </svg>
-                      </span>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                        required
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                  </div>
+  return (
+    <div className="min-h-screen bg-canvas">
+      <Navbar overlay />
+
+      <section className="on-brand hero-field relative overflow-hidden pt-32 pb-20 text-brand-ink md:pt-40 md:pb-24">
+        <div
+          className="pointer-events-none absolute -right-40 -top-40 h-[620px] w-[620px] rounded-full bg-brand/25 blur-[130px]"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-[1200px] px-6">
+          <div className="rise max-w-3xl">
+            <p className="eyebrow text-brand-soft">Get in touch</p>
+            <h1 className="display mt-6 text-[clamp(2.5rem,7vw,4.5rem)]">
+              Tell us what you need built.
+            </h1>
+            <p className="measure mt-7 text-lg leading-relaxed text-brand-ink/75">
+              A few lines about the problem is enough. We read every message and
+              usually reply within one business day.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
+        <div className="grid gap-10 lg:grid-cols-12">
+          {/* Form */}
+          <div className="card p-8 md:p-10 lg:col-span-7">
+            <h2 className="display text-[1.875rem]">Send us a message</h2>
+
+            {submitStatus === "success" && (
+              <div
+                role="status"
+                className="mt-6 flex items-start gap-3 rounded-[10px] border border-brand/30 bg-brand/8 p-4"
+              >
+                <svg className="mt-0.5 h-5 w-5 shrink-0 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <p className="text-sm">
+                  Message sent. We will get back to you shortly.
+                </p>
+              </div>
+            )}
+
+            {submitStatus === "error" && (
+              <div
+                role="alert"
+                className="mt-6 flex items-start gap-3 rounded-[10px] border border-red-400/40 bg-red-500/8 p-4"
+              >
+                <svg className="mt-0.5 h-5 w-5 shrink-0 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <p className="text-sm">{errorMessage}</p>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium">
+                    Full name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    disabled={isSubmitting}
+                    autoComplete="name"
+                    className={`mt-2 ${field}`}
+                  />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Message
+                  <label htmlFor="email" className="block text-sm font-medium">
+                    Email address
                   </label>
-                  <div className="relative">
-                    <span className="pointer-events-none absolute inset-y-0 left-3 flex items-start pt-3 text-gray-400">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                        <path d="M7.5 4.5h9A2.25 2.25 0 0118.75 6.75v10.5A2.25 2.25 0 0116.5 19.5h-9a2.25 2.25 0 01-2.25-2.25V6.75A2.25 2.25 0 017.5 4.5z" />
-                      </svg>
-                    </span>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-900/60 focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
-                      required
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <input id="consent" type="checkbox" className="mt-1 h-5 w-5 rounded-md border border-gray-300 dark:border-gray-600 text-purple-600 focus:ring-purple-500/50" required />
-                  <label htmlFor="consent" className="text-sm text-gray-600 dark:text-gray-400">
-                    I agree to the processing of my personal data in accordance with the privacy policy.
-                  </label>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
-                    type="submit" 
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     disabled={isSubmitting}
-                    className="btn-primary w-full sm:w-auto px-10 py-4 text-lg shadow-2xl hover:shadow-purple-500/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      'Send Message'
-                    )}
-                  </button>
+                    autoComplete="email"
+                    className={`mt-2 ${field}`}
+                  />
                 </div>
+              </div>
 
-                <div className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  disabled={isSubmitting}
+                  placeholder="What are you trying to build, or what is going wrong?"
+                  className={`mt-2 resize-y ${field}`}
+                />
+              </div>
+
+              <div className="flex items-start gap-3">
+                <input
+                  id="consent"
+                  type="checkbox"
+                  required
+                  className="mt-1 h-4 w-4 accent-[var(--brand)]"
+                />
+                <label htmlFor="consent" className="text-sm leading-relaxed text-dim">
+                  I agree to the processing of my personal data in accordance with
+                  the privacy policy.
+                </label>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <button type="submit" disabled={isSubmitting} className="btn-primary">
+                  {isSubmitting ? (
+                    <>
+                      <svg
+                        className="mr-2 h-4 w-4 animate-spin"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                      Sending
+                    </>
+                  ) : (
+                    "Send message"
+                  )}
+                </button>
+                <p className="text-sm text-dim">
                   We typically respond within 1 business day.
-                </div>
-              </form>
-            </AnimatedSection>
+                </p>
+              </div>
+            </form>
+          </div>
 
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <AnimatedSection
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="card p-8 hover:shadow-2xl hover:shadow-purple-500/10"
-              >
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Contact Information</h3>
-                <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                        <path d="M1.5 8.67l9.546 5.73a1.5 1.5 0 001.408 0L22.5 8.67M3.75 6h16.5A2.25 2.25 0 0122.5 8.25v7.5A2.25 2.25 0 0120.25 18H3.75A2.25 2.25 0 011.5 15.75v-7.5A2.25 2.25 0 013.75 6z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
-                      <p className="text-gray-600 dark:text-gray-400">info@kikpot.com</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center text-white shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                        <path fillRule="evenodd" d="M1.5 4.5A1.5 1.5 0 013 3h3.75c.621 0 1.168.403 1.37.996l1.026 3.078a1.5 1.5 0 01-.375 1.56L7.5 10.5a12.75 12.75 0 006 6l1.866-1.271a1.5 1.5 0 011.56-.375l3.078 1.026c.593.202.996.749.996 1.37V21a1.5 1.5 0 01-1.5 1.5H19.5C10.94 22.5 3.75 15.31 3.75 6.75V6A1.5 1.5 0 012.25 4.5H1.5z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white">Phone</h4>
-                      <p className="text-gray-600 dark:text-gray-400">+91 7653955621</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                        <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75 0 5.384 4.365 9.75 9.75 9.75s9.75-4.366 9.75-9.75c0-5.385-4.365-9.75-9.75-9.75zm0 4.5a5.25 5.25 0 100 10.5 5.25 5.25 0 000-10.5z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white">Address</h4>
-                      <p className="text-gray-600 dark:text-gray-400">Bhubaneswar, Odisha<br />India</p>
-                    </div>
-                  </div>
-           
+          {/* Details */}
+          <div className="space-y-6 lg:col-span-5">
+            <div className="card p-8">
+              <h2 className="display text-[1.5rem]">Contact information</h2>
+              <dl className="mt-6 space-y-5">
+                <div>
+                  <dt className="text-sm text-dim">Email</dt>
+                  <dd className="mt-1">
+                    <a
+                      href="mailto:info@kikpot.com"
+                      className="text-brand underline underline-offset-4"
+                    >
+                      info@kikpot.com
+                    </a>
+                  </dd>
                 </div>
-              </AnimatedSection>
+                <div>
+                  <dt className="text-sm text-dim">Phone</dt>
+                  <dd className="mt-1">
+                    <a
+                      href="tel:+917653955621"
+                      className="text-brand underline underline-offset-4"
+                    >
+                      +91 76539 55621
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-dim">Address</dt>
+                  <dd className="mt-1">Bhubaneswar, Odisha, India</dd>
+                </div>
+              </dl>
 
-              <AnimatedSection
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="card p-8 hover:shadow-2xl hover:shadow-purple-500/10"
-              >
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Connect with Us</h3>
-                <div className="flex gap-3">
-                  {/* <a className="w-11 h-11 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-white/20 dark:border-gray-800/20 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:scale-105 transition" href="#" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                      <path d="M8 19c7.732 0 11.945-6.41 11.945-11.955 0-.181 0-.362-.012-.54A8.533 8.533 0 0022 3.92a8.19 8.19 0 01-2.357.646A4.118 4.118 0 0021.448 2.6a8.224 8.224 0 01-2.606.996A4.107 4.107 0 0015.292 2c-2.266 0-4.104 1.84-4.104 4.107 0 .322.036.635.106.935A11.654 11.654 0 013 3.16a4.106 4.106 0 001.27 5.474 4.073 4.073 0 01-1.86-.514v.052c0 2.042 1.452 3.745 3.378 4.132a4.11 4.11 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 17.542 11.616 11.616 0 008 19z" />
+              <div className="mt-8 border-t border-hairline pt-6">
+                <h3 className="text-sm font-medium text-accent">Also reachable on</h3>
+                <div className="mt-4 flex gap-3">
+                  <a
+                    href="https://t.me/Kikpotbot"
+                    aria-label="Telegram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline text-dim transition-colors duration-200 hover:border-brand hover:text-brand"
+                  >
+                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
                     </svg>
                   </a>
-                  <a className="w-11 h-11 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-white/20 dark:border-gray-800/20 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:scale-105 transition" href="#" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
-                      <path d="M4.983 3.5C4.983 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.983 2.12 4.983 3.5zM.25 8h4.5v15.75H.25V8zm7.5 0H12v2.144h.062c.523-1 1.8-2.144 3.706-2.144C20.25 8 22 10.06 22 13.86V23.75h-4.5v-8.625c0-2.06-.75-3.468-2.625-3.468-1.43 0-2.278.96-2.652 1.887-.137.334-.171.8-.171 1.27V23.75H7.75V8z" />
-                    </svg>
-                  </a> */}
-                  <a className="w-11 h-11 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-white/20 dark:border-gray-800/20 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:scale-105 transition" href="https://t.me/Kikpotbot" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                  </a>
-                  <a className="w-11 h-11 rounded-xl bg-white/60 dark:bg-gray-800/60 border border-white/20 dark:border-gray-800/20 flex items-center justify-center text-gray-700 dark:text-gray-300 hover:scale-105 transition" href="https://wa.me/917653955621" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                  <a
+                    href="https://wa.me/917653955621"
+                    aria-label="WhatsApp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline text-dim transition-colors duration-200 hover:border-brand hover:text-brand"
+                  >
+                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                     </svg>
                   </a>
                 </div>
-              </AnimatedSection>
+              </div>
+            </div>
 
-              <AnimatedSection
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="card p-8 hover:shadow-2xl hover:shadow-purple-500/10"
-              >
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Business Hours</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-gray-600 dark:text-gray-400">
-                    <span>Monday - Friday</span>
-                    <span className="text-gray-900 dark:text-gray-300">9:00 AM - 6:00 PM</span>
+            <div className="card p-8">
+              <h2 className="display text-[1.5rem]">Business hours</h2>
+              <dl className="mt-6 space-y-3">
+                {hours.map((row) => (
+                  <div
+                    key={row.day}
+                    className="flex items-baseline justify-between gap-4 border-b border-hairline pb-3 last:border-b-0 last:pb-0"
+                  >
+                    <dt className="text-sm text-dim">{row.day}</dt>
+                    <dd className="text-sm font-medium">{row.time}</dd>
                   </div>
-                  <div className="flex justify-between text-gray-600 dark:text-gray-400">
-                    <span>Saturday</span>
-                    <span className="text-gray-900 dark:text-gray-300">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between text-gray-600 dark:text-gray-400">
-                    <span>Sunday</span>
-                    <span className="text-gray-900 dark:text-gray-300">Closed</span>
-                  </div>
-                </div>
-              </AnimatedSection>
+                ))}
+              </dl>
+              <p className="mt-6 text-sm text-dim">
+                Existing clients with an urgent incident can reach an on-call
+                engineer at any hour.
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 }

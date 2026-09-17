@@ -20,18 +20,18 @@ export default function ColorConverter() {
 
   return (
     <div className="space-y-5">
-      <p className="text-sm text-gray-600 dark:text-gray-400">
+      <p className="text-sm text-dim ">
         Convert color between the different formats (hex, rgb, hsl and css name)
       </p>
 
-      <div className="p-5 rounded-2xl bg-gray-50/60 dark:bg-gray-900/40 border border-gray-200 dark:border-gray-800 space-y-3">
+      <div className="p-5 rounded-2xl bg-surface-2 border border-hairline space-y-3">
         <div className="flex items-center gap-3">
-          <span className="w-28 text-sm text-gray-300">color picker:</span>
-          <input type="color" value={hex} onChange={(e) => setHex(e.target.value)} className="h-10 w-20 rounded-lg border border-gray-700/40" />
+          <span className="w-28 text-sm text-dim">color picker:</span>
+          <input type="color" value={hex} onChange={(e) => setHex(e.target.value)} className="h-10 w-20 rounded-lg border border-hairline" />
           <input
             value={hex}
             onChange={(e) => setHex(normalizeHex(e.target.value))}
-            className="flex-1 h-10 px-3 rounded-xl border border-gray-700/40 bg-emerald-700 text-white font-mono"
+            className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-emerald-700 text-text font-mono"
           />
         </div>
 
@@ -50,9 +50,9 @@ export default function ColorConverter() {
 function Row({ label, value, onCopy }: { label: string; value: string; onCopy: () => void }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="w-28 text-sm text-gray-300">{label}</span>
-      <input value={value} readOnly className="flex-1 h-10 px-3 rounded-xl border border-gray-700/40 bg-gray-800 text-white font-mono" />
-      <button onClick={onCopy} className="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-gray-700/40 hover:bg-gray-700 transition-smooth text-white">⧉</button>
+      <span className="w-28 text-sm text-dim">{label}</span>
+      <input value={value} readOnly className="flex-1 h-10 px-3 rounded-xl border border-hairline bg-surface-2 text-text font-mono" />
+      <button onClick={onCopy} className="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-hairline hover:bg-surface-2 transition-smooth text-text">⧉</button>
     </div>
   );
 }

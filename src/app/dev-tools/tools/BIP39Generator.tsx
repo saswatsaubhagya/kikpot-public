@@ -162,8 +162,8 @@ export default function BIP39Generator() {
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-          <span className="text-sm text-gray-700 dark:text-gray-200">Language</span>
+        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+          <span className="text-sm text-dim ">Language</span>
           <select
             className="bg-transparent outline-none"
             value={languageCode}
@@ -177,8 +177,8 @@ export default function BIP39Generator() {
           </select>
         </label>
 
-        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50">
-          <span className="text-sm text-gray-700 dark:text-gray-200">Words</span>
+        <label className="flex items-center justify-between gap-3 px-3 py-2 rounded-xl border bg-surface border-hairline ">
+          <span className="text-sm text-dim ">Words</span>
           <select
             className="bg-transparent outline-none"
             value={wordCount}
@@ -200,14 +200,14 @@ export default function BIP39Generator() {
       </div>
 
       <div className="space-y-3">
-        <label className="block text-sm text-gray-700 dark:text-gray-200">Entropy (seed) — hex</label>
+        <label className="block text-sm text-dim ">Entropy (seed) — hex</label>
         <div className="flex items-center gap-3">
           <input
             type="text"
             value={entropyHex}
             onChange={(e) => onChangeEntropy(e.target.value)}
             placeholder="e.g. 71441eff..."
-            className="flex-1 px-3 py-2 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50 font-mono text-sm dark:text-white"
+            className="flex-1 px-3 py-2 rounded-xl border bg-surface border-hairline font-mono text-sm "
           />
           <button onClick={() => copyToClipboard(entropyHex, "entropy")} className="btn-primary px-4 py-2.5">
             {copied.entropy ? "Copied" : "Copy"}
@@ -217,7 +217,7 @@ export default function BIP39Generator() {
 
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <label className="block text-sm text-gray-700 dark:text-gray-200">Passphrase (mnemonic)</label>
+          <label className="block text-sm text-dim ">Passphrase (mnemonic)</label>
           {!mnemonicValid && (
             <span className="text-xs text-red-600 dark:text-red-400">Invalid for selected language</span>
           )}
@@ -227,7 +227,7 @@ export default function BIP39Generator() {
             value={mnemonic}
             onChange={(e) => onChangeMnemonic(e.target.value)}
             rows={3}
-            className={`flex-1 p-3 rounded-xl border bg-white/60 dark:bg-gray-900/40 border-gray-200 dark:border-gray-700/50 font-mono text-sm dark:text-white ${
+            className={`flex-1 p-3 rounded-xl border bg-surface border-hairline font-mono text-sm ${
               mnemonicValid ? "" : "border-red-400 dark:border-red-500"
             }`}
           />

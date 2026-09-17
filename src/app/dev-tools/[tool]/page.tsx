@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { tools } from "../toolsData";
@@ -12,78 +13,84 @@ export function generateStaticParams() {
 
 type ToolPageProps = { params: Promise<{ tool: string }> };
 
+export async function generateMetadata({ params }: ToolPageProps) {
+  const { tool: toolId } = await params;
+  const meta = tools.find((t) => t.id === toolId);
+  if (!meta) return {};
+  return {
+    title: `${meta.name} — Kikpot dev tools`,
+    description: meta.description,
+  };
+}
+
 export default async function ToolPage({ params }: ToolPageProps) {
   const { tool: toolId } = await params;
   const meta = tools.find((t) => t.id === toolId);
   if (!meta) return notFound();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900">
+    <div className="min-h-screen bg-canvas">
       <Navbar />
 
-      <div className="pt-24 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-gradient-mesh opacity-5" />
-        </div>
+      <div className="mx-auto max-w-[1200px] px-6 pt-28 pb-20">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+          <aside className="hidden lg:col-span-3 lg:block">
+            <div className="sticky top-28">
+              <div className="flex items-baseline justify-between">
+                <h2 className="text-sm font-medium text-accent">All tools</h2>
+                <Link
+                  href="/dev-tools"
+                  className="text-xs text-dim transition-colors duration-200 hover:text-brand"
+                >
+                  Index
+                </Link>
+              </div>
+              <ul className="mt-4 max-h-[65vh] space-y-0.5 overflow-auto pr-2">
+                {tools.map((t) => {
+                  const isActive = t.id === toolId;
+                  return (
+                    <li key={t.id}>
+                      <Link
+                        href={`/dev-tools/${t.id}`}
+                        aria-current={isActive ? "page" : undefined}
+                        className={`flex items-center gap-2.5 rounded-lg px-2 py-2 text-sm transition-colors duration-200 ${
+                          isActive
+                            ? "bg-brand/10 font-medium text-brand"
+                            : "text-dim hover:bg-surface-2 hover:text-text"
+                        }`}
+                      >
+                        <span aria-hidden="true" className="shrink-0 text-base">
+                          {t.icon}
+                        </span>
+                        <span className="truncate">{t.name}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </aside>
 
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <aside className="hidden lg:block lg:col-span-3">
-              <div className="card p-5 sticky top-28">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-200">Tools</h4>
-                  <Link href="/dev-tools" className="text-xs text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-smooth">All</Link>
-                </div>
-                <ul className="space-y-1 max-h-[60vh] overflow-auto pr-1">
-                  {tools.map((t) => {
-                    const isActive = t.id === toolId;
-                    return (
-                      <li key={t.id}>
-                        <Link
-                          href={`/dev-tools/${t.id}`}
-                          className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-smooth ${
-                            isActive
-                              ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
-                              : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
-                          }`}
-                        >
-                          <span className={`inline-flex h-6 w-6 items-center justify-center rounded-lg ${
-                            isActive ? "bg-white/20" : "bg-gradient-to-br from-purple-600 to-blue-600 text-white"
-                          } text-[12px]`}>
-                            {t.icon}
-                          </span>
-                          <span className="truncate">{t.name}</span>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
+          <main className="lg:col-span-9">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <p className="eyebrow">{meta.category}</p>
+                <h1 className="display mt-4 text-[clamp(2rem,4vw,3rem)]">{meta.name}</h1>
+                <p className="measure mt-3 leading-relaxed text-dim">{meta.description}</p>
               </div>
-            </aside>
+              <Link href="/dev-tools" className="btn-secondary !px-5 !py-2.5 !text-sm">
+                All tools
+              </Link>
+            </div>
 
-            <main className="lg:col-span-9">
-              <div className="flex items-center justify-between gap-4 mb-6">
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">{meta.name}</h1>
-                <Link href="/dev-tools" className="btn-secondary px-4 py-2">All Tools</Link>
-              </div>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="text-xs px-2 py-1 rounded-full bg-white/60 border border-white/50 text-gray-700 dark:bg-gray-800/50 dark:text-gray-300 dark:border-gray-700/50 whitespace-nowrap">
-                  {meta.category}
-                </span>
-                <p className="text-gray-600 dark:text-gray-400">{meta.description}</p>
-              </div>
-              <div className="card p-6">
-                <ToolRenderer toolId={toolId} />
-              </div>
-            </main>
-          </div>
+            <div className="card mt-10 p-6 md:p-8">
+              <ToolRenderer toolId={toolId} />
+            </div>
+          </main>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
-
-
